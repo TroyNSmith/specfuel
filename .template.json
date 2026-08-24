@@ -1,0 +1,10 @@
+{
+  "cookiecutter": {
+    "project_name": "specfuel",
+    "package_name": "specfuel",
+    "author_name": "Troy N. Smith",
+    "author_email": "troy.smith@uga.edu",
+    "github_org_name": "github-org-name",
+    "anaconda_org_name": "anaconda-org-name"
+  }
+}

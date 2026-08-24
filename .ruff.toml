@@ -1,0 +1,26 @@
+exclude = [
+    "docs",
+    "**/*.ipynb",
+    ".pixi",
+    ".venv",
+    "*cache",
+    ".vscode",
+    "htmlcov",
+]
+
+[lint]
+select = ["ALL"]
+ignore = [
+    "COM812",   # missing trailing comma (handled by format)
+    "RUF022",   # `__all__` is not sorted
+    "TID252",   # relative import
+    "D203",     # confict: incorrect blank line before class (uses D211 instead)
+    "D213",     # conflict: multi-line summary second line (uses D212 instead)
+    "CPY001",   # copyright notice at top of file
+]
+
+[lint.per-file-ignores]
+"tests/**.py" = ["S101"]
+
+[lint.pydocstyle]
+convention = "numpy"

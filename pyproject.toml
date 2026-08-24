@@ -1,0 +1,83 @@
+[project]
+name = "specfuel"
+version = "0.0.0"
+authors = [{name = "Troy N. Smith", email = "troy.smith@uga.edu"}]
+requires-python = ">= 3.12"
+dependencies = []
+
+[build-system]
+build-backend = "uv_build"
+requires = ["uv_build<0.12"]
+
+# PyPI dependencies
+[pypi-dependencies]
+jax = ">=0.11.1"
+
+# Ruff configurations
+[tool.ruff]
+exclude = [
+    "docs",
+    "**/*.ipynb"
+]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812",   # missing trailing comma (handled by format)
+    "RUF022",   # `__all__` is not sorted
+    "TID252",   # relative import
+    "D203",     # confict: incorrect blank line before class (uses D211 instead)
+    "D213",     # conflict: multi-line summary second line (uses D212 instead)
+    "CPY001",   # copyright notice at top of file
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**.py" = ["S101"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+# Ty configurations
+[tool.ty.environment]
+python = ".pixi/envs/dev/python.exe"
+
+[tool.ty.src]
+include = [
+    "src",
+    "tests",
+]
+
+# Import-linter configurations
+[tool.importlinter]
+root_package = "specfuel"
+
+[[tool.importlinter.contracts]]
+name = "Module Layering"
+type = "layers"
+layers = [
+    "specfuel.decode",
+    "specfuel.fuel",
+    "specfuel.comp",
+    "specfuel.gcm",
+]
+
+# Pytest configurations
+[tool.pytest.ini_options]
+testpaths = ["tests", "src"]
+addopts = [
+    "--doctest-modules",
+    "--cov=specfuel",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+]
+doctest_optionflags = "NORMALIZE_WHITESPACE"
+
+# Pytest-cov configurations
+[tool.coverage.run]
+branch = true
+source = ["specfuel"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 80

@@ -1,0 +1,12 @@
+group_method      = const1994
+
+comp "decane"
+    formula       = C10H8
+    smiles        = "CCCCCCCCCC"
+    decomposition = {"CH3":2, "CH2":8}
+end
+
+comp "toluene"
+    formula       = C7H8
+    decomposition = {"ACH": 5, "ACCH3": 1}
+end
