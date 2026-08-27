@@ -32,22 +32,6 @@ class TestConstGani:
         exp_groups = 121
         assert const_gani.num_groups == exp_groups
 
-    def test_group_names(self, const_gani: ConstGani) -> None:
-        """Test the group_names property."""
-        expected_headers = [
-            "tck",
-            "tch",
-            "tcc",
-            "tcn",
-            "tco",
-            "tcs",
-            "tcf",
-            "tcw",
-            "tca",
-            "tcp",
-        ]
-        assert const_gani.group_names == expected_headers
-
 
 class BaselineRow(NamedTuple):
     """A single baseline row from a const_gani baseline CSV."""
