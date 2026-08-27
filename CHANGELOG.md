@@ -14,6 +14,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   method (`specfuel.gcm.const1994`).
 - Test suite with pytest, doctest execution, and coverage reporting.
 - Sphinx documentation setup with MyST support.
+- Baseline regression test suite comparing `Fuel` and `ConstGani` property
+  calculations against golden CSVs (`tests/baseline_properties/`) generated
+  for every `ExampleFuels` fuel over a -40C to 100C temperature range (or at
+  STP for temperature-independent properties). Baselines are (re)generated
+  via `scripts/generate_baselines.py` (`pixi run generate-baselines`).
 
 ## [0.0.0] - YYYY-MM-DD
 

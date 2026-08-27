@@ -228,3 +228,6 @@ __marimo__/
 
 # pixi build
 *.conda
+
+# scratch files
+tests/scratch.py

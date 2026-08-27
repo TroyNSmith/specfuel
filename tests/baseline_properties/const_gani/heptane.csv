@@ -1,0 +1,40 @@
+compound,property,temperature_c,value,unit
+n-C07,molecular_weights,,100.0,gram / mole
+n-C07,critical_temperatures,,549.8559805147336,kelvin
+n-C07,critical_pressures,,28.21129514416948,bar
+n-C07,critical_volumes,,0.42465,meter ** 3 / kilomole
+n-C07,boiling_temperatures,,379.0732115086755,kelvin
+n-C07,stp_molar_liquid_volumes,,0.14631000000000002,meter ** 3 / kilomole
+n-C07,acentric_factors,,0.33694545829356337,dimensionless
+n-C07,molar_liquid_volumes,-40.0,0.13605020608709617,meter ** 3 / kilomole
+n-C07,molar_liquid_volumes,-20.0,0.1389633789579773,meter ** 3 / kilomole
+n-C07,molar_liquid_volumes,0.0,0.14208749553630526,meter ** 3 / kilomole
+n-C07,molar_liquid_volumes,20.0,0.14545329335467402,meter ** 3 / kilomole
+n-C07,molar_liquid_volumes,40.0,0.1490987342287979,meter ** 3 / kilomole
+n-C07,molar_liquid_volumes,60.0,0.15307147213377623,meter ** 3 / kilomole
+n-C07,molar_liquid_volumes,80.0,0.15743248000694185,meter ** 3 / kilomole
+n-C07,molar_liquid_volumes,100.0,0.16226156052060095,meter ** 3 / kilomole
+n-C07,densities,-40.0,735.02277487167,kilogram / meter ** 3
+n-C07,densities,-20.0,719.6140504775731,kilogram / meter ** 3
+n-C07,densities,0.0,703.7916997731068,kilogram / meter ** 3
+n-C07,densities,20.0,687.5059181792434,kilogram / meter ** 3
+n-C07,densities,40.0,670.6965053542712,kilogram / meter ** 3
+n-C07,densities,60.0,653.2895947626699,kilogram / meter ** 3
+n-C07,densities,80.0,635.1929410982447,kilogram / meter ** 3
+n-C07,densities,100.0,616.2889083474818,kilogram / meter ** 3
+n-C07,kinematic_viscosities,-40.0,1.5410975709976795,millimeter ** 2 / second
+n-C07,kinematic_viscosities,-20.0,1.0893522949466468,millimeter ** 2 / second
+n-C07,kinematic_viscosities,0.0,0.8204279940189123,millimeter ** 2 / second
+n-C07,kinematic_viscosities,20.0,0.6479337231053303,millimeter ** 2 / second
+n-C07,kinematic_viscosities,40.0,0.5307133474078322,millimeter ** 2 / second
+n-C07,kinematic_viscosities,60.0,0.4473226745197201,millimeter ** 2 / second
+n-C07,kinematic_viscosities,80.0,0.385760392306222,millimeter ** 2 / second
+n-C07,kinematic_viscosities,100.0,0.3389070745489629,millimeter ** 2 / second
+n-C07,dynamic_viscosities,-40.0,1132.741812982705,kilogram * millimeter ** 2 / meter ** 3 / second
+n-C07,dynamic_viscosities,-20.0,783.9132173635963,kilogram * millimeter ** 2 / meter ** 3 / second
+n-C07,dynamic_viscosities,0.0,577.4104124520105,kilogram * millimeter ** 2 / meter ** 3 / second
+n-C07,dynamic_viscosities,20.0,445.4582692228257,kilogram * millimeter ** 2 / meter ** 3 / second
+n-C07,dynamic_viscosities,40.0,355.94758745130025,kilogram * millimeter ** 2 / meter ** 3 / second
+n-C07,dynamic_viscosities,60.0,292.23124876514163,kilogram * millimeter ** 2 / meter ** 3 / second
+n-C07,dynamic_viscosities,80.0,245.0322781482018,kilogram * millimeter ** 2 / meter ** 3 / second
+n-C07,dynamic_viscosities,100.0,208.86467100501898,kilogram * millimeter ** 2 / meter ** 3 / second

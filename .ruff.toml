@@ -21,6 +21,7 @@ ignore = [
 
 [lint.per-file-ignores]
 "tests/**.py" = ["S101"]
+"scripts/**.py" = ["INP001"]  # not a package
 
 [lint.pydocstyle]
 convention = "numpy"

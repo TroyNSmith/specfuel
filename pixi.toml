@@ -67,6 +67,8 @@ lint = "ruff check . --fix"
 types = "ty check"
 imports = "lint-imports"
 test = "pytest"
+# Regenerate baseline property CSVs used by the regression test suite
+generate-baselines = "python scripts/generate_baselines.py"
 # Run pre-commit hooks (see lefthook.yaml)
 pre-commit = "lefthook run pre-commit --all-files"
 local-pre-commit = "lefthook run local-pre-commit --all-files"

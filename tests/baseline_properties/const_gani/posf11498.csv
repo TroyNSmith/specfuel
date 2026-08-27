@@ -1,0 +1,508 @@
+compound,property,temperature_c,value,unit
+C07-Isoparaffin,molecular_weights,,100.0,gram / mole
+C08-Isoparaffin,molecular_weights,,114.0,gram / mole
+C09-Isoparaffin,molecular_weights,,128.0,gram / mole
+C10-Isoparaffin,molecular_weights,,142.0,gram / mole
+C11-Isoparaffin,molecular_weights,,156.0,gram / mole
+C12-Isoparaffin,molecular_weights,,170.0,gram / mole
+C13-Isoparaffin,molecular_weights,,184.0,gram / mole
+C14-Isoparaffin,molecular_weights,,198.0,gram / mole
+C16-Isoparaffin,molecular_weights,,226.0,gram / mole
+C20-Isoparaffin,molecular_weights,,282.0,gram / mole
+C24-Isoparaffin,molecular_weights,,338.0,gram / mole
+C12-Alkene,molecular_weights,,168.0,gram / mole
+C16-Alkene,molecular_weights,,224.0,gram / mole
+C07-Isoparaffin,critical_temperatures,,533.4146960602997,kelvin
+C08-Isoparaffin,critical_temperatures,,563.9600955342268,kelvin
+C09-Isoparaffin,critical_temperatures,,590.0900093375514,kelvin
+C10-Isoparaffin,critical_temperatures,,612.9212458791403,kelvin
+C11-Isoparaffin,critical_temperatures,,633.1940800850165,kelvin
+C12-Isoparaffin,critical_temperatures,,651.4245449431619,kelvin
+C13-Isoparaffin,critical_temperatures,,667.986751127782,kelvin
+C14-Isoparaffin,critical_temperatures,,683.160587368329,kelvin
+C16-Isoparaffin,critical_temperatures,,710.1563157538748,kelvin
+C20-Isoparaffin,critical_temperatures,,754.435295402765,kelvin
+C24-Isoparaffin,critical_temperatures,,789.988135285166,kelvin
+C12-Alkene,critical_temperatures,,659.4431138968705,kelvin
+C16-Alkene,critical_temperatures,,715.9895716183001,kelvin
+C07-Isoparaffin,critical_pressures,,28.07608841386703,bar
+C08-Isoparaffin,critical_pressures,,25.374297018163762,bar
+C09-Isoparaffin,critical_pressures,,23.06269735503261,bar
+C10-Isoparaffin,critical_pressures,,21.069617699747425,bar
+C11-Isoparaffin,critical_pressures,,19.339117443936864,bar
+C12-Isoparaffin,critical_pressures,,17.827018552845068,bar
+C13-Isoparaffin,critical_pressures,,16.498057761142935,bar
+C14-Isoparaffin,critical_pressures,,15.323811859972231,bar
+C16-Isoparaffin,critical_pressures,,13.351163334360622,bar
+C20-Isoparaffin,critical_pressures,,10.480872916980521,bar
+C24-Isoparaffin,critical_pressures,,8.53086580926797,bar
+C12-Alkene,critical_pressures,,18.656623427512464,bar
+C16-Alkene,critical_pressures,,13.863671482331187,bar
+C07-Isoparaffin,critical_volumes,,0.4235499999999999,meter ** 3 / kilomole
+C08-Isoparaffin,critical_volumes,,0.47935,meter ** 3 / kilomole
+C09-Isoparaffin,critical_volumes,,0.53515,meter ** 3 / kilomole
+C10-Isoparaffin,critical_volumes,,0.59095,meter ** 3 / kilomole
+C11-Isoparaffin,critical_volumes,,0.64675,meter ** 3 / kilomole
+C12-Isoparaffin,critical_volumes,,0.70255,meter ** 3 / kilomole
+C13-Isoparaffin,critical_volumes,,0.75835,meter ** 3 / kilomole
+C14-Isoparaffin,critical_volumes,,0.81415,meter ** 3 / kilomole
+C16-Isoparaffin,critical_volumes,,0.9257500000000001,meter ** 3 / kilomole
+C20-Isoparaffin,critical_volumes,,1.14895,meter ** 3 / kilomole
+C24-Isoparaffin,critical_volumes,,1.37215,meter ** 3 / kilomole
+C12-Alkene,critical_volumes,,0.6893500000000001,meter ** 3 / kilomole
+C16-Alkene,critical_volumes,,0.9125500000000001,meter ** 3 / kilomole
+C07-Isoparaffin,boiling_temperatures,,363.5329429558441,kelvin
+C08-Isoparaffin,boiling_temperatures,,393.1121914923576,kelvin
+C09-Isoparaffin,boiling_temperatures,,418.94644388015956,kelvin
+C10-Isoparaffin,boiling_temperatures,,441.87831208846717,kelvin
+C11-Isoparaffin,boiling_temperatures,,462.4945714653191,kelvin
+C12-Isoparaffin,boiling_temperatures,,481.22027792628666,kelvin
+C13-Isoparaffin,boiling_temperatures,,498.3732275321932,kelvin
+C14-Isoparaffin,boiling_temperatures,,514.1972613788107,kelvin
+C16-Isoparaffin,boiling_temperatures,,542.5848379002224,kelvin
+C20-Isoparaffin,boiling_temperatures,,589.7152932344636,kelvin
+C24-Isoparaffin,boiling_temperatures,,627.9873999066365,kelvin
+C12-Alkene,boiling_temperatures,,489.55905089361704,kelvin
+C16-Alkene,boiling_temperatures,,548.793102628064,kelvin
+C07-Isoparaffin,stp_molar_liquid_volumes,,0.14804,meter ** 3 / kilomole
+C08-Isoparaffin,stp_molar_liquid_volumes,,0.16444000000000003,meter ** 3 / kilomole
+C09-Isoparaffin,stp_molar_liquid_volumes,,0.18084000000000003,meter ** 3 / kilomole
+C10-Isoparaffin,stp_molar_liquid_volumes,,0.19724000000000003,meter ** 3 / kilomole
+C11-Isoparaffin,stp_molar_liquid_volumes,,0.21364000000000002,meter ** 3 / kilomole
+C12-Isoparaffin,stp_molar_liquid_volumes,,0.23004000000000002,meter ** 3 / kilomole
+C13-Isoparaffin,stp_molar_liquid_volumes,,0.24644000000000002,meter ** 3 / kilomole
+C14-Isoparaffin,stp_molar_liquid_volumes,,0.26284,meter ** 3 / kilomole
+C16-Isoparaffin,stp_molar_liquid_volumes,,0.29564,meter ** 3 / kilomole
+C20-Isoparaffin,stp_molar_liquid_volumes,,0.36124,meter ** 3 / kilomole
+C24-Isoparaffin,stp_molar_liquid_volumes,,0.42684000000000005,meter ** 3 / kilomole
+C12-Alkene,stp_molar_liquid_volumes,,0.22311000000000003,meter ** 3 / kilomole
+C16-Alkene,stp_molar_liquid_volumes,,0.28871,meter ** 3 / kilomole
+C07-Isoparaffin,acentric_factors,,0.32164517321008307,dimensionless
+C08-Isoparaffin,acentric_factors,,0.36529484812103286,dimensionless
+C09-Isoparaffin,acentric_factors,,0.4090410509318275,dimensionless
+C10-Isoparaffin,acentric_factors,,0.4527417275112839,dimensionless
+C11-Isoparaffin,acentric_factors,,0.49628925819734715,dimensionless
+C12-Isoparaffin,acentric_factors,,0.5396020257104847,dimensionless
+C13-Isoparaffin,acentric_factors,,0.5826182412069446,dimensionless
+C14-Isoparaffin,acentric_factors,,0.6252913644550223,dimensionless
+C16-Isoparaffin,acentric_factors,,0.7094786246997995,dimensionless
+C20-Isoparaffin,acentric_factors,,0.872724866493915,dimensionless
+C24-Isoparaffin,acentric_factors,,1.0288330601166855,dimensionless
+C12-Alkene,acentric_factors,,0.5444754763718404,dimensionless
+C16-Alkene,acentric_factors,,0.7141830644231486,dimensionless
+C07-Isoparaffin,molar_liquid_volumes,-40.0,0.13717038308258594,meter ** 3 / kilomole
+C08-Isoparaffin,molar_liquid_volumes,-40.0,0.15329134583210585,meter ** 3 / kilomole
+C09-Isoparaffin,molar_liquid_volumes,-40.0,0.16929559170092165,meter ** 3 / kilomole
+C10-Isoparaffin,molar_liquid_volumes,-40.0,0.18522784876553378,meter ** 3 / kilomole
+C11-Isoparaffin,molar_liquid_volumes,-40.0,0.20111144678186196,meter ** 3 / kilomole
+C12-Isoparaffin,molar_liquid_volumes,-40.0,0.21695970438436168,meter ** 3 / kilomole
+C13-Isoparaffin,molar_liquid_volumes,-40.0,0.23278074480509076,meter ** 3 / kilomole
+C14-Isoparaffin,molar_liquid_volumes,-40.0,0.24857977767203557,meter ** 3 / kilomole
+C16-Isoparaffin,molar_liquid_volumes,-40.0,0.2801246305009943,meter ** 3 / kilomole
+C20-Isoparaffin,molar_liquid_volumes,-40.0,0.3430479001328833,meter ** 3 / kilomole
+C24-Isoparaffin,molar_liquid_volumes,-40.0,0.40578811771625084,meter ** 3 / kilomole
+C12-Alkene,molar_liquid_volumes,-40.0,0.21063151963642174,meter ** 3 / kilomole
+C16-Alkene,molar_liquid_volumes,-40.0,0.2737116944783911,meter ** 3 / kilomole
+C07-Isoparaffin,molar_liquid_volumes,-20.0,0.14024183252284347,meter ** 3 / kilomole
+C08-Isoparaffin,molar_liquid_volumes,-20.0,0.1564684085477785,meter ** 3 / kilomole
+C09-Isoparaffin,molar_liquid_volumes,-20.0,0.17260504426950288,meter ** 3 / kilomole
+C10-Isoparaffin,molar_liquid_volumes,-20.0,0.18868669243228026,meter ** 3 / kilomole
+C11-Isoparaffin,molar_liquid_volumes,-20.0,0.20473145765627077,meter ** 3 / kilomole
+C12-Isoparaffin,molar_liquid_volumes,-20.0,0.2207496264430161,meter ** 3 / kilomole
+C13-Isoparaffin,molar_liquid_volumes,-20.0,0.23674745193544433,meter ** 3 / kilomole
+C14-Isoparaffin,molar_liquid_volumes,-20.0,0.2527289353996292,meter ** 3 / kilomole
+C16-Isoparaffin,molar_liquid_volumes,-20.0,0.28465269959522066,meter ** 3 / kilomole
+C20-Isoparaffin,molar_liquid_volumes,-20.0,0.34837900172268416,meter ** 3 / kilomole
+C24-Isoparaffin,molar_liquid_volumes,-20.0,0.41197357408805413,meter ** 3 / kilomole
+C12-Alkene,molar_liquid_volumes,-20.0,0.21425145483859173,meter ** 3 / kilomole
+C16-Alkene,molar_liquid_volumes,-20.0,0.278091808378032,meter ** 3 / kilomole
+C07-Isoparaffin,molar_liquid_volumes,0.0,0.14354838809896114,meter ** 3 / kilomole
+C08-Isoparaffin,molar_liquid_volumes,0.0,0.15986564216381122,meter ** 3 / kilomole
+C09-Isoparaffin,molar_liquid_volumes,0.0,0.17612692710194033,meter ** 3 / kilomole
+C10-Isoparaffin,molar_liquid_volumes,0.0,0.19235432841172503,meter ** 3 / kilomole
+C11-Isoparaffin,molar_liquid_volumes,0.0,0.20855919214143348,meter ** 3 / kilomole
+C12-Isoparaffin,molar_liquid_volumes,0.0,0.22474792850884562,meter ** 3 / kilomole
+C13-Isoparaffin,molar_liquid_volumes,0.0,0.24092441889740374,meter ** 3 / kilomole
+C14-Isoparaffin,molar_liquid_volumes,0.0,0.2570911401164492,meter ** 3 / kilomole
+C16-Isoparaffin,molar_liquid_volumes,0.0,0.2894013436004616,meter ** 3 / kilomole
+C20-Isoparaffin,molar_liquid_volumes,0.0,0.3539507605742772,meter ** 3 / kilomole
+C24-Isoparaffin,molar_liquid_volumes,0.0,0.4184240416965489,meter ** 3 / kilomole
+C12-Alkene,molar_liquid_volumes,0.0,0.21806661472235622,meter ** 3 / kilomole
+C16-Alkene,molar_liquid_volumes,0.0,0.28268272045305964,meter ** 3 / kilomole
+C07-Isoparaffin,molar_liquid_volumes,20.0,0.14712649760244284,meter ** 3 / kilomole
+C08-Isoparaffin,molar_liquid_volumes,20.0,0.16351357597949184,meter ** 3 / kilomole
+C09-Isoparaffin,molar_liquid_volumes,20.0,0.1798882731160186,meter ** 3 / kilomole
+C10-Isoparaffin,molar_liquid_volumes,20.0,0.19625555744397277,meter ** 3 / kilomole
+C11-Isoparaffin,molar_liquid_volumes,20.0,0.21261795653864574,meter ** 3 / kilomole
+C12-Isoparaffin,molar_liquid_volumes,20.0,0.22897688886359152,meter ** 3 / kilomole
+C13-Isoparaffin,molar_liquid_volumes,20.0,0.24533320924479404,meter ** 3 / kilomole
+C14-Isoparaffin,molar_liquid_volumes,20.0,0.26168746134947746,meter ** 3 / kilomole
+C16-Isoparaffin,molar_liquid_volumes,20.0,0.294391089409529,meter ** 3 / kilomole
+C20-Isoparaffin,molar_liquid_volumes,20.0,0.35978364358033865,meter ** 3 / kilomole
+C24-Isoparaffin,molar_liquid_volumes,20.0,0.4251606535926678,meter ** 3 / kilomole
+C12-Alkene,molar_liquid_volumes,20.0,0.2220974373667958,meter ** 3 / kilomole
+C16-Alkene,molar_liquid_volumes,20.0,0.287503791306976,meter ** 3 / kilomole
+C07-Isoparaffin,molar_liquid_volumes,40.0,0.15102177721255908,meter ** 3 / kilomole
+C08-Isoparaffin,molar_liquid_volumes,40.0,0.16744953463549905,meter ** 3 / kilomole
+C09-Isoparaffin,molar_liquid_volumes,40.0,0.1839215949834589,meter ** 3 / kilomole
+C10-Isoparaffin,molar_liquid_volumes,40.0,0.20041984514620462,meter ** 3 / kilomole
+C11-Isoparaffin,molar_liquid_volumes,40.0,0.21693517830751913,meter ** 3 / kilomole
+C12-Isoparaffin,molar_liquid_volumes,40.0,0.23346252465036607,meter ** 3 / kilomole
+C13-Isoparaffin,molar_liquid_volumes,40.0,0.2499988461935162,meter ** 3 / kilomole
+C14-Isoparaffin,molar_liquid_volumes,40.0,0.26654221861409216,meter ** 3 / kilomole
+C16-Isoparaffin,molar_liquid_volumes,40.0,0.29964542820278867,meter ** 3 / kilomole
+C20-Isoparaffin,molar_liquid_volumes,40.0,0.3659007970662423,meter ** 3 / kilomole
+C24-Isoparaffin,molar_liquid_volumes,40.0,0.4322071203273,meter ** 3 / kilomole
+C12-Alkene,molar_liquid_volumes,40.0,0.22636771482531431,meter ** 3 / kilomole
+C16-Alkene,molar_liquid_volumes,40.0,0.2925771386034902,meter ** 3 / kilomole
+C07-Isoparaffin,molar_liquid_volumes,60.0,0.15529238591139774,meter ** 3 / kilomole
+C08-Isoparaffin,molar_liquid_volumes,60.0,0.17171982531496519,meter ** 3 / kilomole
+C09-Isoparaffin,molar_liquid_volumes,60.0,0.18826647841918212,meter ** 3 / kilomole
+C10-Isoparaffin,molar_liquid_volumes,60.0,0.20488257304656743,meter ** 3 / kilomole
+C11-Isoparaffin,molar_liquid_volumes,60.0,0.22154344019835046,meter ** 3 / kilomole
+C12-Isoparaffin,molar_liquid_volumes,60.0,0.23823547892571162,meter ** 3 / kilomole
+C13-Isoparaffin,molar_liquid_volumes,60.0,0.25495059481099586,meter ** 3 / kilomole
+C14-Isoparaffin,molar_liquid_volumes,60.0,0.27168368592332076,meter ** 3 / kilomole
+C16-Isoparaffin,molar_liquid_volumes,60.0,0.3051914143336017,meter ** 3 / kilomole
+C20-Isoparaffin,molar_liquid_volumes,60.0,0.37232853429476315,meter ** 3 / kilomole
+C24-Isoparaffin,molar_liquid_volumes,60.0,0.43959016470205775,meter ** 3 / kilomole
+C12-Alkene,molar_liquid_volumes,60.0,0.23090537008104545,meter ** 3 / kilomole
+C16-Alkene,molar_liquid_volumes,60.0,0.29792818591426573,meter ** 3 / kilomole
+C07-Isoparaffin,molar_liquid_volumes,80.0,0.16001412059920914,meter ** 3 / kilomole
+C08-Isoparaffin,molar_liquid_volumes,80.0,0.17638288703799326,meter ** 3 / kilomole
+C09-Isoparaffin,molar_liquid_volumes,80.0,0.19297180279496207,meter ** 3 / kilomole
+C10-Isoparaffin,molar_liquid_volumes,80.0,0.2096867409205769,meter ** 3 / kilomole
+C11-Isoparaffin,molar_liquid_volumes,80.0,0.22648186166756284,meter ** 3 / kilomole
+C12-Isoparaffin,molar_liquid_volumes,80.0,0.24333218821533184,meter ** 3 / kilomole
+C13-Isoparaffin,molar_liquid_volumes,80.0,0.2602229791218417,meter ** 3 / kilomole
+C14-Isoparaffin,molar_liquid_volumes,80.0,0.2771449985928133,meter ** 3 / kilomole
+C16-Isoparaffin,molar_liquid_volumes,80.0,0.3110604237601568,meter ** 3 / kilomole
+C20-Isoparaffin,molar_liquid_volumes,80.0,0.3790969391778899,meter ** 3 / kilomole
+C24-Isoparaffin,molar_liquid_volumes,80.0,0.4473400521564592,meter ** 3 / kilomole
+C12-Alkene,molar_liquid_volumes,80.0,0.23574347350857736,meter ** 3 / kilomole
+C16-Alkene,molar_liquid_volumes,80.0,0.3035863555155841,meter ** 3 / kilomole
+C07-Isoparaffin,molar_liquid_volumes,100.0,0.16528841203199313,meter ** 3 / kilomole
+C08-Isoparaffin,molar_liquid_volumes,100.0,0.18151396190360272,meter ** 3 / kilomole
+C09-Isoparaffin,molar_liquid_volumes,100.0,0.19809891232868201,meter ** 3 / kilomole
+C10-Isoparaffin,molar_liquid_volumes,100.0,0.2148853318720485,meter ** 3 / kilomole
+C11-Isoparaffin,molar_liquid_volumes,100.0,0.23179797817033854,meter ** 3 / kilomole
+C12-Isoparaffin,molar_liquid_volumes,100.0,0.2487964445909484,meter ** 3 / kilomole
+C13-Isoparaffin,molar_liquid_volumes,100.0,0.26585712448500864,meter ** 3 / kilomole
+C14-Isoparaffin,molar_liquid_volumes,100.0,0.28296533650498457,meter ** 3 / kilomole
+C16-Isoparaffin,molar_liquid_volumes,100.0,0.3172891260263472,meter ** 3 / kilomole
+C20-Isoparaffin,molar_liquid_volumes,100.0,0.3862406211536992,meter ** 3 / kilomole
+C24-Isoparaffin,molar_liquid_volumes,100.0,0.45549124321993567,meter ** 3 / kilomole
+C12-Alkene,molar_liquid_volumes,100.0,0.24092159357484025,meter ** 3 / kilomole
+C16-Alkene,molar_liquid_volumes,100.0,0.3095859530572065,meter ** 3 / kilomole
+C07-Isoparaffin,densities,-40.0,729.0203450098493,kilogram / meter ** 3
+C08-Isoparaffin,densities,-40.0,743.6819044230966,kilogram / meter ** 3
+C09-Isoparaffin,densities,-40.0,756.0740283546506,kilogram / meter ** 3
+C10-Isoparaffin,densities,-40.0,766.62338274925,kilogram / meter ** 3
+C11-Isoparaffin,densities,-40.0,775.689313046449,kilogram / meter ** 3
+C12-Isoparaffin,densities,-40.0,783.5556398935317,kilogram / meter ** 3
+C13-Isoparaffin,densities,-40.0,790.443385487338,kilogram / meter ** 3
+C14-Isoparaffin,densities,-40.0,796.5249701897789,kilogram / meter ** 3
+C16-Isoparaffin,densities,-40.0,806.7837504892232,kilogram / meter ** 3
+C20-Isoparaffin,densities,-40.0,822.0426357099527,kilogram / meter ** 3
+C24-Isoparaffin,densities,-40.0,832.947011613455,kilogram / meter ** 3
+C12-Alkene,densities,-40.0,797.6014239938569,kilogram / meter ** 3
+C16-Alkene,densities,-40.0,818.3793550614414,kilogram / meter ** 3
+C07-Isoparaffin,densities,-20.0,713.0540025117781,kilogram / meter ** 3
+C08-Isoparaffin,densities,-20.0,728.581577955971,kilogram / meter ** 3
+C09-Isoparaffin,densities,-20.0,741.5774002533944,kilogram / meter ** 3
+C10-Isoparaffin,densities,-20.0,752.5702961323776,kilogram / meter ** 3
+C11-Isoparaffin,densities,-20.0,761.9737669328407,kilogram / meter ** 3
+C12-Isoparaffin,densities,-20.0,770.1032284368712,kilogram / meter ** 3
+C13-Isoparaffin,densities,-20.0,777.1994946335162,kilogram / meter ** 3
+C14-Isoparaffin,densities,-20.0,783.4480831682818,kilogram / meter ** 3
+C16-Isoparaffin,densities,-20.0,793.9499619057699,kilogram / meter ** 3
+C20-Isoparaffin,densities,-20.0,809.4632529674592,kilogram / meter ** 3
+C24-Isoparaffin,densities,-20.0,820.4409730604633,kilogram / meter ** 3
+C12-Alkene,densities,-20.0,784.125363940069,kilogram / meter ** 3
+C16-Alkene,densities,-20.0,805.4893860645448,kilogram / meter ** 3
+C07-Isoparaffin,densities,0.0,696.6292086196104,kilogram / meter ** 3
+C08-Isoparaffin,densities,0.0,713.0988150861485,kilogram / meter ** 3
+C09-Isoparaffin,densities,0.0,726.7486130948904,kilogram / meter ** 3
+C10-Isoparaffin,densities,0.0,738.2209756988465,kilogram / meter ** 3
+C11-Isoparaffin,densities,0.0,747.9890883649439,kilogram / meter ** 3
+C12-Isoparaffin,densities,0.0,756.4029672171557,kilogram / meter ** 3
+C13-Isoparaffin,densities,0.0,763.7249924357204,kilogram / meter ** 3
+C14-Isoparaffin,densities,0.0,770.15489491515,kilogram / meter ** 3
+C16-Isoparaffin,densities,0.0,780.922428307757,kilogram / meter ** 3
+C20-Isoparaffin,densities,0.0,796.7209889377305,kilogram / meter ** 3
+C24-Isoparaffin,densities,0.0,807.7929715260617,kilogram / meter ** 3
+C12-Alkene,densities,0.0,770.4067869990033,kilogram / meter ** 3
+C16-Alkene,densities,0.0,792.4078261345157,kilogram / meter ** 3
+C07-Isoparaffin,densities,20.0,679.6872190230105,kilogram / meter ** 3
+C08-Isoparaffin,densities,20.0,697.1898163018469,kilogram / meter ** 3
+C09-Isoparaffin,densities,20.0,711.5527754132513,kilogram / meter ** 3
+C10-Isoparaffin,densities,20.0,723.546389459765,kilogram / meter ** 3
+C11-Isoparaffin,densities,20.0,733.7103720665532,kilogram / meter ** 3
+C12-Isoparaffin,densities,20.0,742.4330064213343,kilogram / meter ** 3
+C13-Isoparaffin,densities,20.0,750.0003793469492,kilogram / meter ** 3
+C14-Isoparaffin,densities,20.0,756.6277687855119,kilogram / meter ** 3
+C16-Isoparaffin,densities,20.0,767.6862790015026,kilogram / meter ** 3
+C20-Isoparaffin,densities,20.0,783.8043919776753,kilogram / meter ** 3
+C24-Isoparaffin,densities,20.0,794.9936033446465,kilogram / meter ** 3
+C12-Alkene,densities,20.0,756.4247565925157,kilogram / meter ** 3
+C16-Alkene,densities,20.0,779.1201604045242,kilogram / meter ** 3
+C07-Isoparaffin,densities,40.0,662.1561595004454,kilogram / meter ** 3
+C08-Isoparaffin,densities,40.0,680.802130911579,kilogram / meter ** 3
+C09-Isoparaffin,densities,40.0,695.9487275624799,kilogram / meter ** 3
+C10-Isoparaffin,densities,40.0,708.5126719682484,kilogram / meter ** 3
+C11-Isoparaffin,densities,40.0,719.1088195887727,kilogram / meter ** 3
+C12-Isoparaffin,densities,40.0,728.1682585014119,kilogram / meter ** 3
+C13-Isoparaffin,densities,40.0,736.0033968219655,kilogram / meter ** 3
+C14-Isoparaffin,densities,40.0,742.8466718312657,kilogram / meter ** 3
+C16-Isoparaffin,densities,40.0,754.2247560908947,kilogram / meter ** 3
+C20-Isoparaffin,densities,40.0,770.7006988261548,kilogram / meter ** 3
+C24-Isoparaffin,densities,40.0,782.032465693857,kilogram / meter ** 3
+C12-Alkene,densities,40.0,742.1553030636189,kilogram / meter ** 3
+C16-Alkene,densities,40.0,765.6100578096496,kilogram / meter ** 3
+C07-Isoparaffin,densities,60.0,643.9465747989417,kilogram / meter ** 3
+C08-Isoparaffin,densities,60.0,663.8720939233626,kilogram / meter ** 3
+C09-Isoparaffin,densities,60.0,679.8873653705009,kilogram / meter ** 3
+C10-Isoparaffin,densities,60.0,693.0799330000851,kilogram / meter ** 3
+C11-Isoparaffin,densities,60.0,704.150842202014,kilogram / meter ** 3
+C12-Isoparaffin,densities,60.0,713.5796933630137,kilogram / meter ** 3
+C13-Isoparaffin,densities,60.0,721.7084554613646,kilogram / meter ** 3
+C14-Isoparaffin,densities,60.0,728.7886989868172,kilogram / meter ** 3
+C16-Isoparaffin,densities,60.0,740.5188658189501,kilogram / meter ** 3
+C20-Isoparaffin,densities,60.0,757.3956171104192,kilogram / meter ** 3
+C24-Isoparaffin,densities,60.0,768.8980035053496,kilogram / meter ** 3
+C12-Alkene,densities,60.0,727.5707790643141,kilogram / meter ** 3
+C16-Alkene,densities,60.0,751.8590405019957,kilogram / meter ** 3
+C07-Isoparaffin,densities,80.0,624.9448462768619,kilogram / meter ** 3
+C08-Isoparaffin,densities,80.0,646.3212044796849,kilogram / meter ** 3
+C09-Isoparaffin,densities,80.0,663.3093444020087,kilogram / meter ** 3
+C10-Isoparaffin,densities,80.0,677.2006631253112,kilogram / meter ** 3
+C11-Isoparaffin,densities,80.0,688.7968813545947,kilogram / meter ** 3
+C12-Isoparaffin,densities,80.0,698.6334247303196,kilogram / meter ** 3
+C13-Isoparaffin,densities,80.0,707.0859023324278,kilogram / meter ** 3
+C14-Isoparaffin,densities,80.0,714.4274693944789,kilogram / meter ** 3
+C16-Isoparaffin,densities,80.0,726.5469430925014,kilogram / meter ** 3
+C20-Isoparaffin,densities,80.0,743.8730595175618,kilogram / meter ** 3
+C24-Isoparaffin,densities,80.0,755.5773250587072,kilogram / meter ** 3
+C12-Alkene,densities,80.0,712.6390287699203,kilogram / meter ** 3
+C16-Alkene,densities,80.0,737.8460722306781,kilogram / meter ** 3
+C07-Isoparaffin,densities,100.0,605.0030898756778,kilogram / meter ** 3
+C08-Isoparaffin,densities,100.0,628.05086068554,kilogram / meter ** 3
+C09-Isoparaffin,densities,100.0,646.1418616353874,kilogram / meter ** 3
+C10-Isoparaffin,densities,100.0,660.8175568007248,kilogram / meter ** 3
+C11-Isoparaffin,densities,100.0,672.9998304185475,kilogram / meter ** 3
+C12-Isoparaffin,densities,100.0,683.2895071290133,kilogram / meter ** 3
+C13-Isoparaffin,densities,100.0,692.1010687843182,kilogram / meter ** 3
+C14-Isoparaffin,densities,100.0,699.7323504199326,kilogram / meter ** 3
+C16-Isoparaffin,densities,100.0,712.284101350619,kilogram / meter ** 3
+C20-Isoparaffin,densities,100.0,730.1148158825633,kilogram / meter ** 3
+C24-Isoparaffin,densities,100.0,742.0559780921966,kilogram / meter ** 3
+C12-Alkene,densities,100.0,697.3223010323989,kilogram / meter ** 3
+C16-Alkene,densities,100.0,723.547040128815,kilogram / meter ** 3
+C07-Isoparaffin,kinematic_viscosities,-40.0,1.2660059452657269,millimeter ** 2 / second
+C08-Isoparaffin,kinematic_viscosities,-40.0,1.851123470822507,millimeter ** 2 / second
+C09-Isoparaffin,kinematic_viscosities,-40.0,2.632703921288031,millimeter ** 2 / second
+C10-Isoparaffin,kinematic_viscosities,-40.0,3.6620099715715946,millimeter ** 2 / second
+C11-Isoparaffin,kinematic_viscosities,-40.0,5.001549506759572,millimeter ** 2 / second
+C12-Isoparaffin,kinematic_viscosities,-40.0,6.727268076376312,millimeter ** 2 / second
+C13-Isoparaffin,kinematic_viscosities,-40.0,8.931137272562212,millimeter ** 2 / second
+C14-Isoparaffin,kinematic_viscosities,-40.0,11.724206559819624,millimeter ** 2 / second
+C16-Isoparaffin,kinematic_viscosities,-40.0,19.639730888731172,millimeter ** 2 / second
+C20-Isoparaffin,kinematic_viscosities,-40.0,50.530881964909426,millimeter ** 2 / second
+C24-Isoparaffin,kinematic_viscosities,-40.0,119.6569745028633,millimeter ** 2 / second
+C12-Alkene,kinematic_viscosities,-40.0,7.709614880248151,millimeter ** 2 / second
+C16-Alkene,kinematic_viscosities,-40.0,22.09691018043006,millimeter ** 2 / second
+C07-Isoparaffin,kinematic_viscosities,-20.0,0.917149661922294,millimeter ** 2 / second
+C08-Isoparaffin,kinematic_viscosities,-20.0,1.2782357891389748,millimeter ** 2 / second
+C09-Isoparaffin,kinematic_viscosities,-20.0,1.7356357735788672,millimeter ** 2 / second
+C10-Isoparaffin,kinematic_viscosities,-20.0,2.3079477813097173,millimeter ** 2 / second
+C11-Isoparaffin,kinematic_viscosities,-20.0,3.0166565623357626,millimeter ** 2 / second
+C12-Isoparaffin,kinematic_viscosities,-20.0,3.886517530240624,millimeter ** 2 / second
+C13-Isoparaffin,kinematic_viscosities,-20.0,4.945987825002607,millimeter ** 2 / second
+C14-Isoparaffin,kinematic_viscosities,-20.0,6.227709454167003,millimeter ** 2 / second
+C16-Isoparaffin,kinematic_viscosities,-20.0,9.612708976005084,millimeter ** 2 / second
+C20-Isoparaffin,kinematic_viscosities,-20.0,21.09125180558759,millimeter ** 2 / second
+C24-Isoparaffin,kinematic_viscosities,-20.0,42.744798312004015,millimeter ** 2 / second
+C12-Alkene,kinematic_viscosities,-20.0,4.364925861820224,millimeter ** 2 / second
+C16-Alkene,kinematic_viscosities,-20.0,10.609631349359756,millimeter ** 2 / second
+C07-Isoparaffin,kinematic_viscosities,0.0,0.7041881960478972,millimeter ** 2 / second
+C08-Isoparaffin,kinematic_viscosities,0.0,0.9452361410739892,millimeter ** 2 / second
+C09-Isoparaffin,kinematic_viscosities,0.0,1.2381371373150225,millimeter ** 2 / second
+C10-Isoparaffin,kinematic_viscosities,0.0,1.590325701359579,millimeter ** 2 / second
+C11-Isoparaffin,kinematic_viscosities,0.0,2.010058416519583,millimeter ** 2 / second
+C12-Isoparaffin,kinematic_viscosities,0.0,2.506487680334134,millimeter ** 2 / second
+C13-Isoparaffin,kinematic_viscosities,0.0,3.089741996075118,millimeter ** 2 / second
+C14-Isoparaffin,kinematic_viscosities,0.0,3.771013105777085,millimeter ** 2 / second
+C16-Isoparaffin,kinematic_viscosities,0.0,5.478262770222754,millimeter ** 2 / second
+C20-Isoparaffin,kinematic_viscosities,0.0,10.70316022380721,millimeter ** 2 / second
+C24-Isoparaffin,kinematic_viscosities,0.0,19.41103515392665,millimeter ** 2 / second
+C12-Alkene,kinematic_viscosities,0.0,2.772432719922334,millimeter ** 2 / second
+C16-Alkene,kinematic_viscosities,0.0,5.961580041791163,millimeter ** 2 / second
+C07-Isoparaffin,kinematic_viscosities,20.0,0.5648303265533446,millimeter ** 2 / second
+C08-Isoparaffin,kinematic_viscosities,20.0,0.7356403517785034,millimeter ** 2 / second
+C09-Isoparaffin,kinematic_viscosities,20.0,0.9363688249988966,millimeter ** 2 / second
+C10-Isoparaffin,kinematic_viscosities,20.0,1.1701833959619268,millimeter ** 2 / second
+C11-Isoparaffin,kinematic_viscosities,20.0,1.440503811073706,millimeter ** 2 / second
+C12-Isoparaffin,kinematic_viscosities,20.0,1.7510161612307984,millimeter ** 2 / second
+C13-Isoparaffin,kinematic_viscosities,20.0,2.105688380070409,millimeter ** 2 / second
+C14-Isoparaffin,kinematic_viscosities,20.0,2.5087869046399547,millimeter ** 2 / second
+C16-Isoparaffin,kinematic_viscosities,20.0,3.4789289383529156,millimeter ** 2 / second
+C20-Isoparaffin,kinematic_viscosities,20.0,6.225578703542868,millimeter ** 2 / second
+C24-Isoparaffin,kinematic_viscosities,20.0,10.394275849838323,millimeter ** 2 / second
+C12-Alkene,kinematic_viscosities,20.0,1.9139595187214324,millimeter ** 2 / second
+C16-Alkene,kinematic_viscosities,20.0,3.7452798096665547,millimeter ** 2 / second
+C07-Isoparaffin,kinematic_viscosities,40.0,0.4685742361904139,millimeter ** 2 / second
+C08-Isoparaffin,kinematic_viscosities,40.0,0.5953723963379779,millimeter ** 2 / second
+C09-Isoparaffin,kinematic_viscosities,40.0,0.7403486942885197,millimeter ** 2 / second
+C10-Isoparaffin,kinematic_viscosities,40.0,0.9049049047510784,millimeter ** 2 / second
+C11-Isoparaffin,kinematic_viscosities,40.0,1.0905252515360466,millimeter ** 2 / second
+C12-Isoparaffin,kinematic_viscosities,40.0,1.2987786169422415,millimeter ** 2 / second
+C13-Isoparaffin,kinematic_viscosities,40.0,1.531321162424264,millimeter ** 2 / second
+C14-Isoparaffin,kinematic_viscosities,40.0,1.7898992916117136,millimeter ** 2 / second
+C16-Isoparaffin,kinematic_viscosities,40.0,2.392618882673516,millimeter ** 2 / second
+C20-Isoparaffin,kinematic_viscosities,40.0,3.99815335368271,millimeter ** 2 / second
+C24-Isoparaffin,kinematic_viscosities,40.0,6.2635600554036195,millimeter ** 2 / second
+C12-Alkene,kinematic_viscosities,40.0,1.4062567900799872,millimeter ** 2 / second
+C16-Alkene,kinematic_viscosities,40.0,2.5541043684914526,millimeter ** 2 / second
+C07-Isoparaffin,kinematic_viscosities,60.0,0.3991673617102291,millimeter ** 2 / second
+C08-Isoparaffin,kinematic_viscosities,60.0,0.4968409052798499,millimeter ** 2 / second
+C09-Isoparaffin,kinematic_viscosities,60.0,0.6059907944738651,millimeter ** 2 / second
+C10-Isoparaffin,kinematic_viscosities,60.0,0.727247690777171,millimeter ** 2 / second
+C11-Isoparaffin,kinematic_viscosities,60.0,0.8612711843546954,millimeter ** 2 / second
+C12-Isoparaffin,kinematic_viscosities,60.0,1.0087497744181584,millimeter ** 2 / second
+C13-Isoparaffin,kinematic_viscosities,60.0,1.1704009818449073,millimeter ** 2 / second
+C14-Isoparaffin,kinematic_viscosities,60.0,1.34697160271478,millimeter ** 2 / second
+C16-Isoparaffin,kinematic_viscosities,60.0,1.7480070146242745,millimeter ** 2 / second
+C20-Isoparaffin,kinematic_viscosities,60.0,2.7653272090547416,millimeter ** 2 / second
+C24-Isoparaffin,kinematic_viscosities,60.0,4.119488255970773,millimeter ** 2 / second
+C12-Alkene,kinematic_viscosities,60.0,1.083828926408593,millimeter ** 2 / second
+C16-Alkene,kinematic_viscosities,60.0,1.853343880884246,millimeter ** 2 / second
+C07-Isoparaffin,kinematic_viscosities,80.0,0.3473430068512686,millimeter ** 2 / second
+C08-Isoparaffin,kinematic_viscosities,80.0,0.4248702449047872,millimeter ** 2 / second
+C09-Isoparaffin,kinematic_viscosities,80.0,0.5098449950407205,millimeter ** 2 / second
+C10-Isoparaffin,kinematic_viscosities,80.0,0.602550986617649,millimeter ** 2 / second
+C11-Isoparaffin,kinematic_viscosities,80.0,0.7032826324063094,millimeter ** 2 / second
+C12-Isoparaffin,kinematic_viscosities,80.0,0.812344987845695,millimeter ** 2 / second
+C13-Isoparaffin,kinematic_viscosities,80.0,0.9300536041465128,millimeter ** 2 / second
+C14-Isoparaffin,kinematic_viscosities,80.0,1.056734381775461,millimeter ** 2 / second
+C16-Isoparaffin,kinematic_viscosities,80.0,1.3383671411229932,millimeter ** 2 / second
+C20-Isoparaffin,kinematic_viscosities,80.0,2.024769319346961,millimeter ** 2 / second
+C24-Isoparaffin,kinematic_viscosities,80.0,2.8960016526479877,millimeter ** 2 / second
+C12-Alkene,kinematic_viscosities,80.0,0.8672367613218059,millimeter ** 2 / second
+C16-Alkene,kinematic_viscosities,80.0,1.4111358213701464,millimeter ** 2 / second
+C07-Isoparaffin,kinematic_viscosities,100.0,0.30751675931604255,millimeter ** 2 / second
+C08-Isoparaffin,kinematic_viscosities,100.0,0.3705888212603587,millimeter ** 2 / second
+C09-Isoparaffin,kinematic_viscosities,100.0,0.4385821190739975,millimeter ** 2 / second
+C10-Isoparaffin,kinematic_viscosities,100.0,0.5116237969033046,millimeter ** 2 / second
+C11-Isoparaffin,kinematic_viscosities,100.0,0.5898443347817008,millimeter ** 2 / second
+C12-Isoparaffin,kinematic_viscosities,100.0,0.6733780434093668,millimeter ** 2 / second
+C13-Isoparaffin,kinematic_viscosities,100.0,0.762363197461101,millimeter ** 2 / second
+C14-Isoparaffin,kinematic_viscosities,100.0,0.8569420216092072,millimeter ** 2 / second
+C16-Isoparaffin,kinematic_viscosities,100.0,1.0634688979236957,millimeter ** 2 / second
+C20-Isoparaffin,kinematic_viscosities,100.0,1.5503253936170152,millimeter ** 2 / second
+C24-Isoparaffin,kinematic_viscosities,100.0,2.1443497062936956,millimeter ** 2 / second
+C12-Alkene,kinematic_viscosities,100.0,0.7150166250402049,millimeter ** 2 / second
+C16-Alkene,kinematic_viscosities,100.0,1.116099739887627,millimeter ** 2 / second
+C07-Isoparaffin,dynamic_viscosities,-40.0,922.9440910021406,kilogram * millimeter ** 2 / meter ** 3 / second
+C08-Isoparaffin,dynamic_viscosities,-40.0,1376.6470281035745,kilogram * millimeter ** 2 / meter ** 3 / second
+C09-Isoparaffin,dynamic_viscosities,-40.0,1990.5190592333267,kilogram * millimeter ** 2 / meter ** 3 / second
+C10-Isoparaffin,dynamic_viscosities,-40.0,2807.3824720677007,kilogram * millimeter ** 2 / meter ** 3 / second
+C11-Isoparaffin,dynamic_viscosities,-40.0,3879.648501066138,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Isoparaffin,dynamic_viscosities,-40.0,5271.188842320369,kilogram * millimeter ** 2 / meter ** 3 / second
+C13-Isoparaffin,dynamic_viscosities,-40.0,7059.558381976225,kilogram * millimeter ** 2 / meter ** 3 / second
+C14-Isoparaffin,dynamic_viscosities,-40.0,9338.623280559135,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Isoparaffin,dynamic_viscosities,-40.0,15845.01574500958,kilogram * millimeter ** 2 / meter ** 3 / second
+C20-Isoparaffin,dynamic_viscosities,-40.0,41538.53939518266,kilogram * millimeter ** 2 / meter ** 3 / second
+C24-Isoparaffin,dynamic_viscosities,-40.0,99667.91933086737,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Alkene,dynamic_viscosities,-40.0,6149.1998069301535,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Alkene,dynamic_viscosities,-40.0,18083.655102310953,kilogram * millimeter ** 2 / meter ** 3 / second
+C07-Isoparaffin,dynamic_viscosities,-20.0,653.9772373360158,kilogram * millimeter ** 2 / meter ** 3 / second
+C08-Isoparaffin,dynamic_viscosities,-20.0,931.2990482506701,kilogram * millimeter ** 2 / meter ** 3 / second
+C09-Isoparaffin,dynamic_viscosities,-20.0,1287.1082647574055,kilogram * millimeter ** 2 / meter ** 3 / second
+C10-Isoparaffin,dynamic_viscosities,-20.0,1736.892945238318,kilogram * millimeter ** 2 / meter ** 3 / second
+C11-Isoparaffin,dynamic_viscosities,-20.0,2298.6131643456547,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Isoparaffin,dynamic_viscosities,-20.0,2993.0196974147993,kilogram * millimeter ** 2 / meter ** 3 / second
+C13-Isoparaffin,dynamic_viscosities,-20.0,3844.0192380555504,kilogram * millimeter ** 2 / meter ** 3 / second
+C14-Isoparaffin,dynamic_viscosities,-20.0,4879.087034396124,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Isoparaffin,dynamic_viscosities,-20.0,7632.009925310489,kilogram * millimeter ** 2 / meter ** 3 / second
+C20-Isoparaffin,dynamic_viscosities,-20.0,17072.593295706727,kilogram * millimeter ** 2 / meter ** 3 / second
+C24-Isoparaffin,dynamic_viscosities,-20.0,35069.58392037382,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Alkene,dynamic_viscosities,-20.0,3422.649079971202,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Alkene,dynamic_viscosities,-20.0,8545.945441966936,kilogram * millimeter ** 2 / meter ** 3 / second
+C07-Isoparaffin,dynamic_viscosities,0.0,490.55806573211765,kilogram * millimeter ** 2 / meter ** 3 / second
+C08-Isoparaffin,dynamic_viscosities,0.0,674.0467721764653,kilogram * millimeter ** 2 / meter ** 3 / second
+C09-Isoparaffin,dynamic_viscosities,0.0,899.8144473649705,kilogram * millimeter ** 2 / meter ** 3 / second
+C10-Isoparaffin,dynamic_viscosities,0.0,1174.0117909366209,kilogram * millimeter ** 2 / meter ** 3 / second
+C11-Isoparaffin,dynamic_viscosities,0.0,1503.5017625327657,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Isoparaffin,dynamic_viscosities,0.0,1895.9147186979844,kilogram * millimeter ** 2 / meter ** 3 / second
+C13-Isoparaffin,dynamic_viscosities,0.0,2359.7131825807974,kilogram * millimeter ** 2 / meter ** 3 / second
+C14-Isoparaffin,dynamic_viscosities,0.0,2904.264202203404,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Isoparaffin,dynamic_viscosities,0.0,4278.0982654303325,kilogram * millimeter ** 2 / meter ** 3 / second
+C20-Isoparaffin,dynamic_viscosities,0.0,8527.432398270661,kilogram * millimeter ** 2 / meter ** 3 / second
+C24-Isoparaffin,dynamic_viscosities,0.0,15680.097767387255,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Alkene,dynamic_viscosities,0.0,2135.900983926273,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Alkene,dynamic_viscosities,0.0,4724.002681242651,kilogram * millimeter ** 2 / meter ** 3 / second
+C07-Isoparaffin,dynamic_viscosities,20.0,383.9079538749017,kilogram * millimeter ** 2 / meter ** 3 / second
+C08-Isoparaffin,dynamic_viscosities,20.0,512.8809617206808,kilogram * millimeter ** 2 / meter ** 3 / second
+C09-Isoparaffin,dynamic_viscosities,20.0,666.2758362384099,kilogram * millimeter ** 2 / meter ** 3 / second
+C10-Isoparaffin,dynamic_viscosities,20.0,846.6819711540187,kilogram * millimeter ** 2 / meter ** 3 / second
+C11-Isoparaffin,dynamic_viscosities,20.0,1056.9125871861768,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Isoparaffin,dynamic_viscosities,20.0,1300.0121928749254,kilogram * millimeter ** 2 / meter ** 3 / second
+C13-Isoparaffin,dynamic_viscosities,20.0,1579.2670838392698,kilogram * millimeter ** 2 / meter ** 3 / second
+C14-Isoparaffin,dynamic_viscosities,20.0,1898.2178380160397,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Isoparaffin,dynamic_viscosities,20.0,2670.7260115947975,kilogram * millimeter ** 2 / meter ** 3 / second
+C20-Isoparaffin,dynamic_viscosities,20.0,4879.635930439582,kilogram * millimeter ** 2 / meter ** 3 / second
+C24-Isoparaffin,dynamic_viscosities,20.0,8263.382812021206,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Alkene,dynamic_viscosities,20.0,1447.766363076788,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Alkene,dynamic_viscosities,20.0,2918.023006067232,kilogram * millimeter ** 2 / meter ** 3 / second
+C07-Isoparaffin,dynamic_viscosities,40.0,310.2693166766991,kilogram * millimeter ** 2 / meter ** 3 / second
+C08-Isoparaffin,dynamic_viscosities,40.0,405.3307961128285,kilogram * millimeter ** 2 / meter ** 3 / second
+C09-Isoparaffin,dynamic_viscosities,40.0,515.2447317426387,kilogram * millimeter ** 2 / meter ** 3 / second
+C10-Isoparaffin,dynamic_viscosities,40.0,641.1365919423598,kilogram * millimeter ** 2 / meter ** 3 / second
+C11-Isoparaffin,dynamic_viscosities,40.0,784.206326363836,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Isoparaffin,dynamic_viscosities,40.0,945.7293636777043,kilogram * millimeter ** 2 / meter ** 3 / second
+C13-Isoparaffin,dynamic_viscosities,40.0,1127.057577169619,kilogram * millimeter ** 2 / meter ** 3 / second
+C14-Isoparaffin,dynamic_viscosities,40.0,1329.6207316869015,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Isoparaffin,dynamic_viscosities,40.0,1804.5723932029018,kilogram * millimeter ** 2 / meter ** 3 / second
+C20-Isoparaffin,dynamic_viscosities,40.0,3081.379583697399,kilogram * millimeter ** 2 / meter ** 3 / second
+C24-Isoparaffin,dynamic_viscosities,40.0,4898.307314148844,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Alkene,dynamic_viscosities,40.0,1043.660934227085,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Alkene,dynamic_viscosities,40.0,1955.4479932126196,kilogram * millimeter ** 2 / meter ** 3 / second
+C07-Isoparaffin,dynamic_viscosities,60.0,257.04245534483226,kilogram * millimeter ** 2 / meter ** 3 / second
+C08-Isoparaffin,dynamic_viscosities,60.0,329.83881213491304,kilogram * millimeter ** 2 / meter ** 3 / second
+C09-Isoparaffin,dynamic_viscosities,60.0,412.0054846936128,kilogram * millimeter ** 2 / meter ** 3 / second
+C10-Isoparaffin,dynamic_viscosities,60.0,504.04078079830833,kilogram * millimeter ** 2 / meter ** 3 / second
+C11-Isoparaffin,dynamic_viscosities,60.0,606.4648298276849,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Isoparaffin,dynamic_viscosities,60.0,719.8233547093187,kilogram * millimeter ** 2 / meter ** 3 / second
+C13-Isoparaffin,dynamic_viscosities,60.0,844.6882848777526,kilogram * millimeter ** 2 / meter ** 3 / second
+C14-Isoparaffin,dynamic_viscosities,60.0,981.6576819146925,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Isoparaffin,dynamic_viscosities,60.0,1294.4321719131367,kilogram * millimeter ** 2 / meter ** 3 / second
+C20-Isoparaffin,dynamic_viscosities,60.0,2094.446708014249,kilogram * millimeter ** 2 / meter ** 3 / second
+C24-Isoparaffin,dynamic_viscosities,60.0,3167.466295479662,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Alkene,dynamic_viscosities,60.0,788.5622563595392,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Alkene,dynamic_viscosities,60.0,1393.453352001874,kilogram * millimeter ** 2 / meter ** 3 / second
+C07-Isoparaffin,dynamic_viscosities,80.0,217.07022202200906,kilogram * millimeter ** 2 / meter ** 3 / second
+C08-Isoparaffin,dynamic_viscosities,80.0,274.60264843444077,kilogram * millimeter ** 2 / meter ** 3 / second
+C09-Isoparaffin,dynamic_viscosities,80.0,338.18494940710565,kilogram * millimeter ** 2 / meter ** 3 / second
+C10-Isoparaffin,dynamic_viscosities,80.0,408.0479277042824,kilogram * millimeter ** 2 / meter ** 3 / second
+C11-Isoparaffin,dynamic_viscosities,80.0,484.4188839123157,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Isoparaffin,dynamic_viscosities,80.0,567.5313609211477,kilogram * millimeter ** 2 / meter ** 3 / second
+C13-Isoparaffin,dynamic_viscosities,80.0,657.6277919054637,kilogram * millimeter ** 2 / meter ** 3 / second
+C14-Isoparaffin,dynamic_viscosities,80.0,754.9600701939818,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Isoparaffin,dynamic_viscosities,80.0,972.386555118361,kilogram * millimeter ** 2 / meter ** 3 / second
+C20-Isoparaffin,dynamic_viscosities,80.0,1506.1713483999151,kilogram * millimeter ** 2 / meter ** 3 / second
+C24-Isoparaffin,dynamic_viscosities,80.0,2188.1531820733617,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Alkene,dynamic_viscosities,80.0,618.026763301943,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Alkene,dynamic_viscosities,80.0,1041.2010231819743,kilogram * millimeter ** 2 / meter ** 3 / second
+C07-Isoparaffin,dynamic_viscosities,100.0,186.04858957476088,kilogram * millimeter ** 2 / meter ** 3 / second
+C08-Isoparaffin,dynamic_viscosities,100.0,232.748628153008,kilogram * millimeter ** 2 / meter ** 3 / second
+C09-Isoparaffin,dynamic_viscosities,100.0,283.3862668984659,kilogram * millimeter ** 2 / meter ** 3 / second
+C10-Isoparaffin,dynamic_viscosities,100.0,338.08998747075196,kilogram * millimeter ** 2 / meter ** 3 / second
+C11-Isoparaffin,dynamic_viscosities,100.0,396.96513728142565,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Isoparaffin,dynamic_viscosities,100.0,460.1121513926855,kilogram * millimeter ** 2 / meter ** 3 / second
+C13-Isoparaffin,dynamic_viscosities,100.0,527.6323837646582,kilogram * millimeter ** 2 / meter ** 3 / second
+C14-Isoparaffin,dynamic_viscosities,100.0,599.6300549542192,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Isoparaffin,dynamic_viscosities,100.0,757.4919882719128,kilogram * millimeter ** 2 / meter ** 3 / second
+C20-Isoparaffin,dynamic_viscosities,100.0,1131.9155393187496,kilogram * millimeter ** 2 / meter ** 3 / second
+C24-Isoparaffin,dynamic_viscosities,100.0,1591.2275186754828,kilogram * millimeter ** 2 / meter ** 3 / second
+C12-Alkene,dynamic_viscosities,100.0,498.59703824945564,kilogram * millimeter ** 2 / meter ** 3 / second
+C16-Alkene,dynamic_viscosities,100.0,807.5506632842327,kilogram * millimeter ** 2 / meter ** 3 / second

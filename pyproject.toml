@@ -3,7 +3,12 @@ name = "specfuel"
 version = "0.0.0"
 authors = [{name = "Troy N. Smith", email = "troy.smith@uga.edu"}]
 requires-python = ">= 3.12"
-dependencies = []
+dependencies = [
+    "numpy>=2.5.2",
+    "pandas>=3.0.5",
+    "pint>=0.25.3",
+    "pydantic>=2.13.4",
+]
 
 [build-system]
 build-backend = "uv_build"
@@ -34,6 +39,9 @@ ignore = [
 [tool.ruff.lint.per-file-ignores]
 "tests/**.py" = ["S101"]
 
+
+
+
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
 
@@ -55,10 +63,10 @@ root_package = "specfuel"
 name = "Module Layering"
 type = "layers"
 layers = [
-    "specfuel.decode",
+    "specfuel.data",
     "specfuel.fuel",
-    "specfuel.comp",
     "specfuel.gcm",
+    "specfuel.types | specfuel.units",
 ]
 
 # Pytest configurations

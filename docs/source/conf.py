@@ -1,9 +1,10 @@
 # Sphinx configuration file.
-from importlib import metadata
+import os
 
 # 0. Add this directory to path (needed for custom autodoc2_docstrings_parser)
 import sys
-import os
+from importlib import metadata
+
 current_script_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_script_dir)
 

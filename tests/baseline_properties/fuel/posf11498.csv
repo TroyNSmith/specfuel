@@ -1,0 +1,41 @@
+property,correlation,temperature_c,value,unit
+density,,-40,787.9109086629734,kilogram / meter ** 3
+kinematic_viscosity,Kendall-Monroe,-40,8.6604887885673e-06,meter ** 2 / second
+dynamic_viscosity,Kendall-Monroe,-40,0.006823693590865554,pascal * second
+kinematic_viscosity,Arrhenius,-40,7.819286577627413e-06,meter ** 2 / second
+dynamic_viscosity,Arrhenius,-40,0.0061609011924746064,pascal * second
+density,,-20,774.5658221902668,kilogram / meter ** 3
+kinematic_viscosity,Kendall-Monroe,-20,4.778982548940019e-06,meter ** 2 / second
+dynamic_viscosity,Kendall-Monroe,-20,0.0037016365472526624,pascal * second
+kinematic_viscosity,Arrhenius,-20,4.411612921493278e-06,meter ** 2 / second
+dynamic_viscosity,Arrhenius,-20,0.0034170845897216456,pascal * second
+density,,0,760.9825398567993,kilogram / meter ** 3
+kinematic_viscosity,Kendall-Monroe,0,2.983552541505617e-06,meter ** 2 / second
+dynamic_viscosity,Kendall-Monroe,0,0.0022704313908311533,pascal * second
+kinematic_viscosity,Arrhenius,0,2.7955120170172943e-06,meter ** 2 / second
+dynamic_viscosity,Arrhenius,0,0.0021273358349100245,pascal * second
+density,,20,747.140411541199,kilogram / meter ** 3
+kinematic_viscosity,Kendall-Monroe,20,2.034708782041109e-06,meter ** 2 / second
+dynamic_viscosity,Kendall-Monroe,20,0.001520213156780686,pascal * second
+kinematic_viscosity,Arrhenius,20,1.9267027297759366e-06,meter ** 2 / second
+dynamic_viscosity,Arrhenius,20,0.0014395174704423448,pascal * second
+density,,40,733.0157710274,kilogram / meter ** 3
+kinematic_viscosity,Kendall-Monroe,40,1.4815542858688729e-06,meter ** 2 / second
+dynamic_viscosity,Kendall-Monroe,40,0.0010860026571751207,pascal * second
+kinematic_viscosity,Arrhenius,40,1.4139124709541655e-06,meter ** 2 / second
+dynamic_viscosity,Arrhenius,40,0.0010364201400617239,pascal * second
+density,,60,718.5812859762435,kilogram / meter ** 3
+kinematic_viscosity,Kendall-Monroe,60,1.1340278529830407e-06,meter ** 2 / second
+dynamic_viscosity,Kendall-Monroe,60,0.0008148911929294319,pascal * second
+kinematic_viscosity,Arrhenius,60,1.0887421872421994e-06,meter ** 2 / second
+dynamic_viscosity,Arrhenius,60,0.0007823497610050877,pascal * second
+density,,80,703.8051161006168,kilogram / meter ** 3
+kinematic_viscosity,Kendall-Monroe,80,9.025177564100125e-07,meter ** 2 / second
+dynamic_viscosity,Kendall-Monroe,80,0.0006351966143330171,pascal * second
+kinematic_viscosity,Arrhenius,80,8.705609075569659e-07,meter ** 2 / second
+dynamic_viscosity,Arrhenius,80,0.0006127052206157887,pascal * second
+density,,100,688.6498052507765,kilogram / meter ** 3
+kinematic_viscosity,Kendall-Monroe,100,7.408899130906871e-07,meter ** 2 / second
+dynamic_viscosity,Kendall-Monroe,100,0.0005102136943621663,pascal * second
+kinematic_viscosity,Arrhenius,100,7.173643303604946e-07,meter ** 2 / second
+dynamic_viscosity,Arrhenius,100,0.0004940128063966083,pascal * second
