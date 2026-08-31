@@ -1,0 +1,68 @@
+Family,Reference Compound,Critical Temperature (K),Molecular Weight (g/mol),STP Molar Liquid Volume (L/mol),Boiling Temperature (K),Acentric Factor
+Toluene,toluene,596.172,92.000,0.107,386.116,0.054
+C2-Benzene,ethyl benzene,620.056,106.000,0.123,411.374,0.067
+C3-Benzene,propyl benzene,639.586,120.000,0.140,435.123,0.102
+C4-Benzene,butyl benzene,657.214,134.000,0.156,456.397,0.139
+C5-Benzene,pentyl benzene,673.278,148.000,0.173,475.664,0.179
+C6-Benzene,hexyl benzene,688.032,162.000,0.189,493.270,0.221
+C7-Benzene,heptyl benzene,701.675,176.000,0.205,509.479,0.264
+C8-Benzene,octyl benzene,714.361,190.000,0.222,524.496,0.307
+C9-Benzene,nonyl benzene,726.217,204.000,0.238,538.484,0.350
+Diaromatic-C10,naphthalene,739.020,128.000,0.127,484.159,0.208
+Diaromatic-C11,1-methyl naphthalene,752.242,142.000,0.142,503.086,0.242
+Diaromatic-C12,1-ethyl naphthalene,762.719,156.000,0.159,517.717,0.260
+Diaromatic-C13,1-propyl naphthalene,771.865,170.000,0.175,532.161,0.303
+Cycloaromatic-C09,indane,660.747,118.000,0.122,442.770,0.046
+Cycloaromatic-C10,tetralin,682.996,132.000,0.137,463.381,0.037
+Cycloaromatic-C11,2-methyl tetralin,692.026,146.000,0.154,475.107,0.052
+Cycloaromatic-C12,2-ethyl tetralin,705.381,160.000,0.170,492.759,0.085
+Cycloaromatic-C13,2-propyl tetralin,717.819,174.000,0.186,509.007,0.121
+Cycloaromatic-C14,2-butyl tetralin,729.458,188.000,0.203,524.057,0.160
+C07-Isoparaffin,2-methyl hexane,533.415,100.000,0.148,363.533,0.322
+C08-Isoparaffin,2-methyl heptane,563.960,114.000,0.164,393.112,0.365
+C09-Isoparaffin,2-methyl octane,590.090,128.000,0.181,418.946,0.409
+C10-Isoparaffin,2-methyl nonane,612.921,142.000,0.197,441.878,0.453
+C11-Isoparaffin,2-methyl decane,633.194,156.000,0.214,462.495,0.496
+C12-Isoparaffin,2-methyl undecane,651.425,170.000,0.230,481.220,0.540
+C13-Isoparaffin,2-methyl dodecane,667.987,184.000,0.246,498.373,0.583
+C14-Isoparaffin,2-methyl tridecane,683.161,198.000,0.263,514.197,0.625
+C15-Isoparaffin,2-methyl tetradecane,697.161,212.000,0.279,528.884,0.668
+C16-Isoparaffin,2-methyl pentadecane,710.156,226.000,0.296,542.585,0.709
+C17-Isoparaffin,2-methyl hexadecane,722.281,240.000,0.312,555.425,0.751
+C18-Isoparaffin,2-methyl heptadecane,733.646,254.000,0.328,567.506,0.792
+C19-Isoparaffin,2-methyl octadecane,744.339,268.000,0.345,578.912,0.833
+C20-Isoparaffin,2-methyl nonadecane,754.435,282.000,0.361,589.715,0.873
+n-C07,n-heptane,549.856,100.000,0.146,379.073,0.337
+n-C08,n-octane,577.946,114.000,0.163,406.626,0.381
+n-C09,n-nonane,602.258,128.000,0.179,430.901,0.424
+n-C10,n-decane,623.691,142.000,0.196,452.597,0.468
+n-C11,n-undecane,642.853,156.000,0.212,472.209,0.512
+n-C12,n-dodecane,660.180,170.000,0.228,490.102,0.555
+n-C13,n-tridecane,675.994,184.000,0.245,506.554,0.598
+n-C14,n-tetradecane,690.537,198.000,0.261,521.780,0.640
+n-C15,n-pentadecane,703.999,212.000,0.278,535.949,0.682
+n-C16,n-hexadecane (cetane),716.529,226.000,0.294,549.200,0.724
+n-C17,n-heptadecane,728.249,240.000,0.310,561.643,0.765
+n-C18,n-octadecane,739.255,254.000,0.327,573.372,0.806
+C07-Monocycloparaffin,methyl cyclohexane,575.778,98.000,0.128,376.162,0.220
+C08-Monocycloparaffin,ethyl cyclohexane,600.364,112.000,0.144,404.084,0.263
+C09-Monocycloparaffin,propyl cyclohexane,622.009,126.000,0.161,428.646,0.306
+C10-Monocycloparaffin,butyl cyclohexane,641.341,140.000,0.177,450.570,0.350
+C11-Monocycloparaffin,pentyl cyclohexane,658.807,154.000,0.194,470.368,0.394
+C12-Monocycloparaffin,hexyl cyclohexane,674.736,168.000,0.210,488.416,0.437
+C13-Monocycloparaffin,heptyl cyclohexane,689.376,182.000,0.226,504.999,0.481
+C14-Monocycloparaffin,octyl cyclohexane,702.922,196.000,0.243,520.337,0.524
+C15-Monocycloparaffin,nonyl cyclohexane,715.524,210.000,0.259,534.603,0.567
+C16-Monocycloparaffin,decyl cyclohexane,727.306,224.000,0.276,547.938,0.610
+C17-Monocycloparaffin,undecyl cyclohexane,738.369,238.000,0.292,560.457,0.653
+C08-Dicycloparaffin,Octahydropentalene,601.349,110.000,0.129,401.293,0.260
+C09-Dicycloparaffin,Hydrindane,631.547,124.000,0.144,426.269,0.246
+C10-Dicycloparaffin,Decalin,657.423,138.000,0.159,448.522,0.233
+C11-Dicycloparaffin,2-methyldecalin,667.783,152.000,0.176,461.106,0.256
+C12-Dicycloparaffin,2-ethyldecalin,682.973,166.000,0.192,479.954,0.299
+C13-Dicycloparaffin,2-propyldecalin,696.987,180.000,0.208,497.209,0.342
+C14-Dicycloparaffin,2-butyldecalin,709.995,194.000,0.225,513.120,0.386
+C15-Dicycloparaffin,2-pentyldacalin,722.130,208.000,0.241,527.881,0.430
+C10-Tricycloparaffin,C1CC2C(C1)C1CCCC21,640.995,136.000,0.143,441.820,0.283
+C11-Tricycloparaffin,C1CC2CC3CCCC3C2C1,661.427,150.000,0.162,458.915,0.309
+C12-Tricycloparaffin,C1CC2CC3CCCC3CC2C1,683.598,164.000,0.177,478.032,0.296
