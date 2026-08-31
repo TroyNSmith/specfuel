@@ -1,4 +1,4 @@
-compound,property,temperature_c,value,unit
+family,property,temperature_c,value,unit
 n-C07,molecular_weights,,100.0,gram / mole
 n-C10,molecular_weights,,142.0,gram / mole
 n-C07,critical_temperatures,,549.8559805147336,kelvin

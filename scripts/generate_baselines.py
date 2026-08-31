@@ -14,11 +14,11 @@ import pandas as pd
 from pint import Quantity
 from pint.facets.plain import PlainQuantity
 
-from specfuel.data import ExampleFuels
-from specfuel.fuel import Fuel
-from specfuel.gcm import ConstGani
-from specfuel.types import INT_MATRIX
-from specfuel.units import Q_
+from fuellib.data import ExampleFuels
+from fuellib.fuel import Fuel
+from fuellib.gcm import ConstGani
+from fuellib.types import INT_MATRIX
+from fuellib.units import Q_
 
 BASELINE_DIR = Path(__file__).resolve().parent.parent / "tests" / "baseline_properties"
 TEMPERATURES_C = np.arange(-40, 101, 20)
@@ -73,10 +73,12 @@ def generate_const_gani_baseline(fuel: Fuel) -> pd.DataFrame:
     -------
         Tidy DataFrame with columns [family, property, temperature_C, value, unit].
     """
+    cg_decomp = np.array([c.cg_decomp for c in fuel.components], dtype=np.int64)
+
     rows = []
     for prop_name, stp_func in STP_PROPERTIES.items():
-        values = stp_func(fuel.cg_decomp)
-        for family, value in zip(fuel.families, values.magnitude, strict=True):
+        values = stp_func(cg_decomp)
+        for family, value in zip(fuel.component_names, values.magnitude, strict=True):
             rows.append(
                 {
                     "family": family,
@@ -89,8 +91,10 @@ def generate_const_gani_baseline(fuel: Fuel) -> pd.DataFrame:
 
     for prop_name, temp_func in TEMP_PROPERTIES.items():
         for temp_c in TEMPERATURES_C:
-            values = temp_func(fuel.cg_decomp, Q_(temp_c, "celsius"))
-            for family, value in zip(fuel.families, values.magnitude, strict=True):
+            values = temp_func(cg_decomp, Q_(temp_c, "celsius"))
+            for family, value in zip(
+                fuel.component_names, values.magnitude, strict=True
+            ):
                 rows.append(
                     {
                         "family": family,

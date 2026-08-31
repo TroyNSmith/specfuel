@@ -9,10 +9,11 @@ import pandas as pd
 import pytest
 from pydantic import ValidationError
 
-from specfuel.fuel import Fuel
-from specfuel.gcm import ConstGani
-from specfuel.types import FLOAT_VECTOR, INT_MATRIX
-from specfuel.units import Q_
+from fuellib.comp import Component
+from fuellib.fuel import Fuel
+from fuellib.gcm import ConstGani
+from fuellib.types import INT_MATRIX
+from fuellib.units import Q_
 
 from .conftest import BASELINE_DIR, FUELS_BY_NAME
 
@@ -25,7 +26,7 @@ NUM_GROUPS = ConstGani().num_groups
 
 def _make_fuel(
     *,
-    weights: FLOAT_VECTOR | None = None,
+    weights: list[float] | None = None,
     cg_groups: list[str] | None = None,
     cg_decomp: INT_MATRIX | None = None,
 ) -> Fuel:
@@ -33,16 +34,20 @@ def _make_fuel(
 
     Returns
     -------
-        A Fuel instance constructed from default single-family fields.
+        A Fuel instance constructed from default single-component fields.
     """
     default_decomp = np.zeros((1, NUM_GROUPS), dtype=np.int64)
     default_decomp[0, 0] = 1
+    weights = weights if weights is not None else [100.0]
+    cg_decomp = cg_decomp if cg_decomp is not None else default_decomp
+    components = [
+        Component(name="test-family", weight=weight, cg_decomp=row)
+        for weight, row in zip(weights, cg_decomp, strict=True)
+    ]
     return Fuel(
         name="test-fuel",
-        families=["test-family"],
-        weights=weights if weights is not None else np.array([100.0]),
         cg_groups=cg_groups if cg_groups is not None else GROUP_NAMES,
-        cg_decomp=cg_decomp if cg_decomp is not None else default_decomp,
+        components=components,
     )
 
 
@@ -50,13 +55,13 @@ class TestFromDirectory:
     """Test Fuel.from_directory."""
 
     def test_loads_decane_fuel(self) -> None:
-        """Test that decane is loaded with the expected family data."""
+        """Test that decane is loaded with the expected component data."""
         fuel = FUELS_BY_NAME["decane"]
-        assert fuel.families == ["n-C10"]
-        assert fuel.formulas == ["C10H22"]
-        assert fuel.weights == pytest.approx([100.0])
-        assert fuel.num_families == 1
-        assert fuel.cg_decomp.shape == (1, NUM_GROUPS)
+        assert fuel.component_names == ["n-C10"]
+        assert fuel.components[0].formula == "C10H22"
+        assert fuel.components[0].weight == pytest.approx(100.0)
+        assert fuel.num_components == 1
+        assert len(fuel.components[0].cg_decomp) == NUM_GROUPS
 
     def test_raises_for_missing_directory(self, tmp_path: Path) -> None:
         """Test that a nonexistent path raises."""
@@ -82,28 +87,17 @@ class TestValidators:
     def test_validate_weights_raises_when_not_summing_to_100(self) -> None:
         """Test that weights not summing to 100% raises."""
         with pytest.raises(ValidationError, match="do not sum to 100%"):
-            _make_fuel(weights=np.array([50.0]))
-
-    def test_validate_weights_raises_on_length_mismatch(self) -> None:
-        """Test that a weights/families length mismatch raises."""
-        with pytest.raises(ValidationError, match="Number of weights"):
-            _make_fuel(weights=np.array([50.0, 50.0]))
+            _make_fuel(weights=[50.0])
 
     def test_validate_cg_decomp_raises_on_group_name_mismatch(self) -> None:
         """Test that cg_groups not matching ConstGani group names raises."""
         with pytest.raises(ValidationError, match="group names"):
             _make_fuel(cg_groups=["not", "matching"])
 
-    def test_validate_cg_decomp_raises_on_row_mismatch(self) -> None:
-        """Test that cg_decomp rows not matching num_families raises."""
-        decomp = np.zeros((2, NUM_GROUPS), dtype=np.int64)
-        with pytest.raises(ValidationError, match="Rows in cg_decomp"):
-            _make_fuel(cg_decomp=decomp)
-
     def test_validate_cg_decomp_raises_on_column_mismatch(self) -> None:
-        """Test that cg_decomp columns not matching num_groups raises."""
+        """Test that a component's cg_decomp not matching num_groups raises."""
         decomp = np.zeros((1, NUM_GROUPS - 1), dtype=np.int64)
-        with pytest.raises(ValidationError, match="Columns in cg_decomp"):
+        with pytest.raises(ValidationError, match="does not match number of cg groups"):
             _make_fuel(cg_decomp=decomp)
 
 

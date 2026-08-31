@@ -14,6 +14,10 @@ dependencies = [
 build-backend = "uv_build"
 requires = ["uv_build<0.12"]
 
+# fuellib is developed side-by-side with specfuel as a second top-level module
+[tool.uv.build-backend]
+module-name = ["specfuel", "fuellib"]
+
 # PyPI dependencies
 [pypi-dependencies]
 diffrax = ">=0.7.2"
@@ -62,17 +66,26 @@ include = [
 
 # Import-linter configurations
 [tool.importlinter]
-root_package = "specfuel"
+root_packages = ["specfuel", "fuellib"]
 
 [[tool.importlinter.contracts]]
-name = "Module Layering"
+name = "Package Layering"
 type = "layers"
 layers = [
-    "specfuel.inv",
-    "specfuel.data",
-    "specfuel.fuel",
-    "specfuel.gcm",
-    "specfuel.types | specfuel.units",
+    "specfuel",
+    "fuellib",
+]
+
+[[tool.importlinter.contracts]]
+name = "fuellib Module Layering"
+type = "layers"
+layers = [
+    "fuellib.data",
+    "fuellib.fuel",
+    "fuellib.comp",
+    "fuellib.decomp",
+    "fuellib.gcm",
+    "fuellib.types | fuellib.units",
 ]
 
 # Pytest configurations
@@ -81,6 +94,7 @@ testpaths = ["tests", "src"]
 addopts = [
     "--doctest-modules",
     "--cov=specfuel",
+    "--cov=fuellib",
     "--cov-report=term-missing",
     "--cov-report=html",
 ]
@@ -89,7 +103,7 @@ doctest_optionflags = "NORMALIZE_WHITESPACE"
 # Pytest-cov configurations
 [tool.coverage.run]
 branch = true
-source = ["specfuel"]
+source = ["specfuel", "fuellib"]
 
 [tool.coverage.report]
 show_missing = true

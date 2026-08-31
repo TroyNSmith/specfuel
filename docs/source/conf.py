@@ -40,6 +40,7 @@ myst_enable_extensions = [
 # 5. Autodoc2 configuration
 autodoc2_packages = [
     "../../src/specfuel",
+    "../../src/fuellib",
 ]
 autodoc2_render_plugin = "myst"
 autodoc2_docstring_parser_regexes = [

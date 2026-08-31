@@ -13,10 +13,12 @@ from pandas import DataFrame
 from pint.errors import DimensionalityError
 from pydantic import BaseModel, ValidationError
 
-from .fuel import Fuel, load_const_gani_decomp
-from .gcm import ConstGani
-from .types import INT_MATRIX
-from .units import Q_
+from fuellib.comp import Component
+from fuellib.decomp import ConstGaniDecomp
+from fuellib.fuel import Fuel
+from fuellib.gcm import ConstGani
+from fuellib.types import INT_MATRIX
+from fuellib.units import Q_
 
 CONST_GANI = ConstGani()
 
@@ -358,10 +360,8 @@ def solve_composition(  # noqa: PLR0913 -- solver tuning knobs, all optional
         msg = f"'{directory}' does not contain required file 'const_gani.csv'."
         raise ValueError(msg)
 
-    families, groups, decomp = load_const_gani_decomp(const_gani_path)
-    if groups != CONST_GANI.group_names:
-        msg = f"Groups in '{const_gani_path}' do not match ConstGani group names.\n"
-        raise ValueError(msg)
+    cg = ConstGaniDecomp.from_csv(const_gani_path)
+    families, groups, decomp = cg.families, cg.groups, cg.decomp
 
     constraints_path = directory / "constraints.csv"
     if not constraints_path.exists():
@@ -388,10 +388,12 @@ def solve_composition(  # noqa: PLR0913 -- solver tuning knobs, all optional
     )
 
     weights = np.asarray(jax.nn.softmax(sol.ys.logits[-1])) * 100.0
+    components = [
+        Component(name=family, weight=float(weight), cg_decomp=row)
+        for family, weight, row in zip(families, weights, decomp, strict=True)
+    ]
     return Fuel(
         name=name or directory.name,
-        families=families,
-        weights=weights,
         cg_groups=groups,
-        cg_decomp=decomp,
+        components=components,
     )

@@ -2,8 +2,8 @@
 
 from pathlib import Path
 
-from specfuel.data import ExampleFuels
-from specfuel.fuel import Fuel
+from fuellib.data import ExampleFuels
+from fuellib.fuel import Fuel
 
 BASELINE_DIR = Path(__file__).resolve().parent / "baseline_properties"
 

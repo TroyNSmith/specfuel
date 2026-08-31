@@ -1,4 +1,4 @@
-compound,property,temperature_c,value,unit
+family,property,temperature_c,value,unit
 n-C10,molecular_weights,,142.0,gram / mole
 n-C10,critical_temperatures,,623.6905158181833,kelvin
 n-C10,critical_pressures,,21.15522932444543,bar

@@ -11,8 +11,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   solves for the weight-fraction composition that best satisfies them
   (least-squares, via a `jax`/`diffrax`/`equinox` gradient-flow optimization
   over a `softmax`-parameterized composition), returning a `Fuel`.
-- `Fuel.py`'s `load_const_gani_decomp` is now public and also returns
-  compound names (previously private and groups/matrix only).
+- `fuellib.decomp.ConstGaniDecomp`: loads/validates a `const_gani.csv`
+  decomposition matrix, auto-reordering group columns to match `ConstGani`'s
+  expected group positions regardless of source column order.
+- `fuellib.comp.Component`: a data container for a single compound within a
+  `Fuel` mixture (`name`, `reference_compound`, `formula`, `pelephysics_key`,
+  `weight`, `cg_decomp`), replacing `Fuel`'s previous parallel
+  arrays/matrix.
+
+### Changed
+- `fuellib.decomp.ConstGaniDecomp` now tolerates `const_gani.csv`/direct
+  construction `groups` that omit some `ConstGani` group names — missing
+  groups are zero-filled rather than raising. Only group names not
+  recognized by `ConstGani` still raise a `ValueError`.
+- `Fuel.from_directory` and `specfuel.inv.solve_composition` now load
+  `const_gani.csv` via `fuellib.decomp.ConstGaniDecomp.from_csv` instead of
+  the removed `fuellib.fuel.load_const_gani_decomp` function.
+- **Breaking:** `Fuel` now stores `components: list[fuellib.comp.Component]`
+  instead of the parallel `families`/`reference_compounds`/`weights`/
+  `formulas`/`pelephysics_keys`/`cg_decomp` fields. `num_families` is
+  renamed `num_components`; `families` is replaced by `component_names`.
+  `ConstGani`'s batch matrix API is unchanged — `Fuel` assembles matrices/
+  vectors from `components` on demand.
+- Regenerated `tests/baseline_properties/const_gani/*.csv` via
+  `pixi run generate-baselines`; only the stale `compound` header (now
+  `family`, matching current code) changed — no property values differ.
 - SFF (SpecFuel Format) decoder (`specfuel.decode`) for parsing fuel
   component blocks (formula, SMILES, group decomposition) from `.sff` files.
 - `Component` data class and group-contribution property functions
@@ -33,6 +56,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   upstream circular-import bug in that release
   (`jax._src.clusters.__init__` imports `cloud_tpu_cluster` before
   `cluster`, breaking `import jax` entirely).
+- Moved `fuel.py`, `gcm.py`, `types.py`, `units.py`, and `data/` out of
+  `specfuel` into a new `src/fuellib` package, developed side-by-side with
+  `specfuel` in this repo for now (eventually to become a separate
+  dependency). `specfuel` now contains only `inv.py`, which imports the
+  above from `fuellib`.
 
 ## [0.0.0] - YYYY-MM-DD
 

@@ -1,4 +1,4 @@
-"""specfuel data."""
+"""fuellib data."""
 
 from .examples import ExampleFuels
 

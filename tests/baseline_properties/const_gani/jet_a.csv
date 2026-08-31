@@ -1,4 +1,4 @@
-compound,property,temperature_c,value,unit
+family,property,temperature_c,value,unit
 Toluene,molecular_weights,,92.0,gram / mole
 C2-Benzene,molecular_weights,,106.0,gram / mole
 C3-Benzene,molecular_weights,,120.0,gram / mole

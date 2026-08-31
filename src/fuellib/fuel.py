@@ -1,4 +1,4 @@
-"""specfuel Fuel module."""
+"""fuellib Fuel module."""
 
 from pathlib import Path
 from typing import Literal, Self, cast
@@ -10,6 +10,8 @@ from pint import Quantity
 from pint.facets.plain import PlainQuantity
 from pydantic import BaseModel, ConfigDict, model_validator
 
+from .comp import Component
+from .decomp import ConstGaniDecomp
 from .gcm import ConstGani
 from .types import FLOAT_VECTOR, INT_MATRIX
 from .units import Q_
@@ -91,47 +93,6 @@ def _load_gc_data(
     return families, weights, reference_compounds, formulas, pelephysics_keys
 
 
-def load_const_gani_decomp(
-    path: str | Path,
-) -> tuple[list[str], list[str], INT_MATRIX]:
-    """Load GCM decomposition data from the const_gani.csv file.
-
-    Returns
-    -------
-        Family names (row index), group names (columns), and the
-        decomposition matrix.
-
-    Raises
-    ------
-        ValueError: If the const_gani.csv file does not exist or does not have
-            'Family' as its first column.
-    """
-    path = Path(path)
-    if not path.exists():
-        msg = f"'{path}' does not exist."
-        raise ValueError(msg)
-
-    if path.suffix != ".csv":
-        msg = f"'{path}' is not a .CSV file."
-        raise ValueError(msg)
-
-    df: DataFrame = pd.read_csv(path, header=0)
-    if len(df.columns) == 0 or df.columns[0] != "Family":
-        msg = f"'{path}' must have 'Family' as its first column."
-        raise ValueError(msg)
-
-    families = df["Family"].tolist()
-    decomp_df = df.drop(columns=["Family"])
-    if "Reference Compound" in decomp_df.columns:
-        decomp_df = decomp_df.drop(columns=["Reference Compound"])
-
-    if not all(decomp_df.dtypes == np.int64):
-        msg = f"'{path}' contains non-integer values."
-        raise ValueError(msg)
-
-    return families, list(decomp_df.columns), decomp_df.to_numpy(dtype=np.int64)
-
-
 class Fuel(BaseModel):
     """Fuel class for specfuel."""
 
@@ -139,50 +100,73 @@ class Fuel(BaseModel):
 
     # Fuel properties
     name: str
-    families: list[str]
-    reference_compounds: list[str] | None = None
-    weights: FLOAT_VECTOR
-    formulas: list[str] | None = None
-    pelephysics_keys: list[str] | None = None
-
-    # Component properties
     cg_groups: list[str]
-    cg_decomp: INT_MATRIX
+    components: list[Component]
 
     @property
-    def num_families(self) -> int:
-        """Get the number of families in the fuel.
+    def num_components(self) -> int:
+        """Get the number of components in the fuel.
 
         Returns
         -------
-            Number of families.
+            Number of components.
         """
-        return len(self.families)
+        return len(self.components)
+
+    @property
+    def component_names(self) -> list[str]:
+        """Get the names of the components in the fuel.
+
+        Returns
+        -------
+            Names of the components, in order.
+        """
+        return [component.name for component in self.components]
+
+    @property
+    def _weights(self) -> FLOAT_VECTOR:
+        """Assemble a weight vector from the fuel's components.
+
+        Returns
+        -------
+            Weight % for each component, in order.
+        """
+        return np.array([component.weight for component in self.components])
+
+    @property
+    def _cg_decomp(self) -> INT_MATRIX:
+        """Assemble a decomposition matrix from the fuel's components.
+
+        Returns
+        -------
+            Decomposition matrix for the fuel, one row per component.
+        """
+        return np.array([component.cg_decomp for component in self.components])
 
     @property
     def _mass_fractions(self) -> FLOAT_VECTOR:
-        """Get the mass fractions of the families in the fuel.
+        """Get the mass fractions of the components in the fuel.
 
         Returns
         -------
-            Mass fractions of the families.
+            Mass fractions of the components.
         """
-        return self.weights / np.sum(self.weights)
+        return self._weights / np.sum(self._weights)
 
     @property
     def _mole_fractions(self) -> FLOAT_VECTOR:
-        """Get the mole fractions of the families in the fuel.
+        """Get the mole fractions of the components in the fuel.
 
         Returns
         -------
-            Mole fractions of the families.
+            Mole fractions of the components.
         """
         return (
             self._mass_fractions
-            * (1.0 / CONST_GANI.molecular_weights(self.cg_decomp).magnitude)
+            * (1.0 / CONST_GANI.molecular_weights(self._cg_decomp).magnitude)
         ) / np.sum(
             self._mass_fractions
-            * (1.0 / CONST_GANI.molecular_weights(self.cg_decomp).magnitude)
+            * (1.0 / CONST_GANI.molecular_weights(self._cg_decomp).magnitude)
         )
 
     def density(
@@ -203,7 +187,7 @@ class Fuel(BaseModel):
         """
         return cast(
             "Quantity",
-            self._mass_fractions @ method.densities(self.cg_decomp, temp),
+            self._mass_fractions @ method.densities(self._cg_decomp, temp),
         )
 
     def kinematic_viscosity(
@@ -228,7 +212,7 @@ class Fuel(BaseModel):
         -------
             Kinematic viscosity of the fuel.
         """
-        nu_i = method.kinematic_viscosities(self.cg_decomp, temp).to("m^2/s")
+        nu_i = method.kinematic_viscosities(self._cg_decomp, temp).to("m^2/s")
 
         if correlation == "Arrhenius":
             nu_mag = np.exp(np.sum(self._mole_fractions * np.log(nu_i.magnitude)))
@@ -295,27 +279,38 @@ class Fuel(BaseModel):
             msg = f"'{path}' does not contain required file 'const_gani.csv'."
             raise ValueError(msg)
 
-        _cg_families, cg_groups, cg_decomp_mat = load_const_gani_decomp(cg_decomp)
+        decomp = ConstGaniDecomp.from_csv(cg_decomp)
+        if len(families) != len(decomp.families):
+            msg = (
+                f"'{gc_data}' and '{cg_decomp}' do not contain the same "
+                f"number of components."
+            )
+            raise ValueError(msg)
+
+        components = [
+            Component(
+                name=family,
+                reference_compound=(
+                    reference_compounds[i] if reference_compounds else None
+                ),
+                formula=formulas[i] if formulas else None,
+                pelephysics_key=pelephysics_keys[i] if pelephysics_keys else None,
+                weight=weights[i],
+                cg_decomp=decomp.decomp[i],
+            )
+            for i, family in enumerate(families)
+        ]
 
         return cls(
             name=path.name,
-            families=families,
-            reference_compounds=reference_compounds,
-            weights=weights,
-            formulas=formulas,
-            pelephysics_keys=pelephysics_keys,
-            cg_groups=cg_groups,
-            cg_decomp=cg_decomp_mat,
+            cg_groups=decomp.groups,
+            components=components,
         )
 
     @model_validator(mode="after")
     def validate_weights(self) -> Self:
         """Validate that the weights sum to 100%."""
-        if len(self.weights) != self.num_families:
-            msg = f"Number of weights != number of families for fuel '{self.name}'."
-            raise ValueError(msg)
-
-        if not np.isclose(np.sum(self.weights), 100.0, atol=5e-1):
+        if not np.isclose(np.sum(self._weights), 100.0, atol=5e-1):
             msg = f"Weights for fuel '{self.name}' do not sum to 100%."
             raise ValueError(msg)
 
@@ -323,20 +318,19 @@ class Fuel(BaseModel):
 
     @model_validator(mode="after")
     def validate_cg_decomp(self) -> Self:
-        """Validate that cg_decomp and cg_groups are consistent with ConstGani."""
+        """Validate that cg_groups and each component's cg_decomp match ConstGani."""
         if self.cg_groups != ConstGani().group_names:
             msg = f"groups for fuel '{self.name}' do not match ConstGani group names.\n"
             raise ValueError(msg)
 
-        if self.cg_decomp.shape[0] != self.num_families:
-            msg = f"Rows in cg_decomp != number of families for fuel '{self.name}'."
-            raise ValueError(msg)
-
-        if self.cg_decomp.shape[1] != ConstGani().num_groups:
-            msg = (
-                f"Columns in cg_decomp != number of cg groups for fuel '{self.name}'.\n"
-                f"Expected {ConstGani().num_groups}, got {self.cg_decomp.shape[1]}.\n"
-            )
-            raise ValueError(msg)
+        num_groups = ConstGani().num_groups
+        for component in self.components:
+            if len(component.cg_decomp) != num_groups:
+                msg = (
+                    f"cg_decomp for component '{component.name}' in fuel "
+                    f"'{self.name}' does not match number of cg groups.\n"
+                    f"Expected {num_groups}, got {len(component.cg_decomp)}.\n"
+                )
+                raise ValueError(msg)
 
         return self

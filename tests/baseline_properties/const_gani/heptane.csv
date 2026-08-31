@@ -1,4 +1,4 @@
-compound,property,temperature_c,value,unit
+family,property,temperature_c,value,unit
 n-C07,molecular_weights,,100.0,gram / mole
 n-C07,critical_temperatures,,549.8559805147336,kelvin
 n-C07,critical_pressures,,28.21129514416948,bar

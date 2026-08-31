@@ -1,4 +1,4 @@
-compound,property,temperature_c,value,unit
+family,property,temperature_c,value,unit
 C07-Isoparaffin,molecular_weights,,100.0,gram / mole
 C08-Isoparaffin,molecular_weights,,114.0,gram / mole
 C09-Isoparaffin,molecular_weights,,128.0,gram / mole

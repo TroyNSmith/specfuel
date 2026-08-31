@@ -6,9 +6,9 @@ from pathlib import Path
 
 import pytest
 
-from specfuel.data.examples import FUEL_DIR, ExampleFuels
+from fuellib.data.examples import FUEL_DIR, ExampleFuels
+from fuellib.units import Q_
 from specfuel.inv import _load_constraints, solve_composition
-from specfuel.units import Q_
 
 CONSTRAINT_TEMP_C = 25.0
 
@@ -97,7 +97,9 @@ class TestSolveComposition:
         fuel = solve_composition(heptane_decane_dir, name="recovered")
         expected = ExampleFuels.heptane_decane
 
-        assert fuel.weights == pytest.approx(expected.weights, abs=2.0)
+        weights = [c.weight for c in fuel.components]
+        expected_weights = [c.weight for c in expected.components]
+        assert weights == pytest.approx(expected_weights, abs=2.0)
 
         temp = Q_(CONSTRAINT_TEMP_C, "degC")
         assert fuel.density(temp).magnitude == pytest.approx(
@@ -133,5 +135,5 @@ class TestSolveComposition:
         """Test that a const_gani.csv with unexpected groups raises."""
         (tmp_path / "const_gani.csv").write_text("Family,foo,bar\nA,1,0\nB,0,1\n")
         _write_constraints_from_ground_truth(tmp_path)
-        with pytest.raises(ValueError, match="do not match"):
+        with pytest.raises(ValueError, match="Unrecognized groups"):
             solve_composition(tmp_path)

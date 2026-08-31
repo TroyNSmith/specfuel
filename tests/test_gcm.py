@@ -3,14 +3,15 @@
 from collections.abc import Callable
 from typing import NamedTuple
 
+import numpy as np
 import pandas as pd
 import pytest
 from pint import Quantity
 from pint.facets.plain import PlainQuantity
 
-from specfuel.gcm import ConstGani
-from specfuel.types import INT_MATRIX
-from specfuel.units import Q_
+from fuellib.gcm import ConstGani
+from fuellib.types import INT_MATRIX
+from fuellib.units import Q_
 
 from .conftest import BASELINE_DIR, FUELS_BY_NAME
 
@@ -103,13 +104,14 @@ def test_const_gani_matches_baseline(case: tuple[str, BaselineRow]) -> None:
     """Recompute each baseline row and compare it to the recorded value."""
     fuel_name, row = case
     fuel = FUELS_BY_NAME[fuel_name]
-    family_idx = fuel.families.index(row.family)
+    cg_decomp = np.array([c.cg_decomp for c in fuel.components], dtype=np.int64)
+    family_idx = fuel.component_names.index(row.family)
 
     if row.property in STP_PROPERTIES:
-        values = STP_PROPERTIES[row.property](fuel.cg_decomp)
+        values = STP_PROPERTIES[row.property](cg_decomp)
     else:
         temp = Q_(row.temperature_c, "celsius")
-        values = TEMP_PROPERTIES[row.property](fuel.cg_decomp, temp)
+        values = TEMP_PROPERTIES[row.property](cg_decomp, temp)
 
     assert str(values.units) == row.unit
     assert values.magnitude[family_idx] == pytest.approx(row.value, rel=BASELINE_RTOL)

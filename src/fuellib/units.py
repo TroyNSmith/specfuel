@@ -1,4 +1,4 @@
-"""specfuel units."""
+"""fuellib units."""
 
 import pint
 
