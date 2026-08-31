@@ -76,8 +76,15 @@ def _load_gc_data(
     return compounds, weights, formulas, pelephysics_keys
 
 
-def _load_const_gani_decomp(path: str | Path) -> tuple[list[str], INT_MATRIX]:
+def load_const_gani_decomp(
+    path: str | Path,
+) -> tuple[list[str], list[str], INT_MATRIX]:
     """Load GCM decomposition data from the const_gani.csv file.
+
+    Returns
+    -------
+        Compound names (row index), group names (columns), and the
+        decomposition matrix.
 
     Raises
     ------
@@ -97,7 +104,7 @@ def _load_const_gani_decomp(path: str | Path) -> tuple[list[str], INT_MATRIX]:
         msg = f"'{path}' contains non-integer values."
         raise ValueError(msg)
 
-    return list(df.columns), df.to_numpy(dtype=np.int64)
+    return list(df.index), list(df.columns), df.to_numpy(dtype=np.int64)
 
 
 class Fuel(BaseModel):
@@ -260,7 +267,7 @@ class Fuel(BaseModel):
             msg = f"'{path}' does not contain required file 'const_gani.csv'."
             raise ValueError(msg)
 
-        cg_groups, cg_decomp_mat = _load_const_gani_decomp(cg_decomp)
+        _cg_compounds, cg_groups, cg_decomp_mat = load_const_gani_decomp(cg_decomp)
 
         return cls(
             name=path.name,

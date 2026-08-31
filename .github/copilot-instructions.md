@@ -28,8 +28,9 @@ this future direction, not current code — don't assume those modules exist.
 ```
 specfuel/
 ├── src/specfuel/                 # Main package source code
-│   ├── __init__.py               # Package init (exports data, fuel, gcm)
+│   ├── __init__.py               # Package init (exports data, fuel, gcm, inv)
 │   ├── fuel.py                   # Fuel model: load from directory, compute density/viscosity
+│   ├── inv.py                    # Inverse-design: solve_composition() from constraints.csv
 │   ├── gcm.py                    # ConstGani: Constantinou-Gani 1994 group-contribution property calculators
 │   ├── types.py                  # Shared numpy array type aliases (FLOAT_VECTOR, INT_MATRIX)
 │   ├── units.py                  # Shared pint UnitRegistry and Q_ quantity constructor
@@ -50,6 +51,7 @@ specfuel/
 │   ├── conftest.py                # Shared fixtures: BASELINE_DIR, FUELS_BY_NAME
 │   ├── test_fuel.py               # Fuel validators/from_directory + baseline regression tests
 │   ├── test_gcm.py                # ConstGani unit tests + baseline regression tests
+│   ├── test_inv.py                # Constraint loading + solve_composition tests
 │   ├── test_units.py              # Placeholder (currently empty)
 │   ├── scratch.py                 # Ad-hoc manual script; not part of the test suite
 │   └── baseline_properties/       # Golden CSVs used by baseline regression tests
@@ -70,12 +72,13 @@ specfuel/
 
 The project follows a layered architecture (enforced by import-linter in `pyproject.toml`):
 
-1. **Layer 1: `specfuel.data`** - Bundled example fuels (`ExampleFuels`)
-2. **Layer 2: `specfuel.fuel`** - `Fuel` model: loading, validation, mixture properties
-3. **Layer 3: `specfuel.gcm`** - `ConstGani` group-contribution property calculators
-4. **Layer 4: `specfuel.types` | `specfuel.units`** - Shared numpy/pint primitives, no internal deps
+1. **Layer 1: `specfuel.inv`** - Inverse-design: solves for a composition (`Fuel`) satisfying property constraints
+2. **Layer 2: `specfuel.data`** - Bundled example fuels (`ExampleFuels`)
+3. **Layer 3: `specfuel.fuel`** - `Fuel` model: loading, validation, mixture properties
+4. **Layer 4: `specfuel.gcm`** - `ConstGani` group-contribution property calculators
+5. **Layer 5: `specfuel.types` | `specfuel.units`** - Shared numpy/pint primitives, no internal deps
 
-Dependencies flow from Layer 1 → Layer 2 → Layer 3 → Layer 4 only. No circular dependencies allowed. Run `pixi run imports` to validate.
+Dependencies flow from Layer 1 → Layer 2 → Layer 3 → Layer 4 → Layer 5 only. No circular dependencies allowed. Run `pixi run imports` to validate.
 
 ## Development Workflow & Test Suite
 
@@ -204,12 +207,15 @@ The project ignores specific Ruff checks (see `.ruff.toml`):
 - **numpy** (≥2.5.2) - Array types (`FLOAT_VECTOR`, `INT_MATRIX`)
 - **pandas** (≥3.0.5) - CSV data loading (fuel/GCM data)
 - **pint** (≥0.25.3) - Physical unit handling (`Quantity`, shared `ureg`)
-- **pydantic** (≥2.13.4) - `Fuel` data model and validation
+- **pydantic** (≥2.13.4) - `Fuel`/`Constraint` data models and validation
+- **jax** (`>=0.4.29,<0.11.1` — capped below 0.11.1 to avoid an upstream
+  circular-import bug in that release), **equinox** (≥0.11.10), **diffrax**
+  (≥0.6.1) - used by `specfuel.inv` for the differentiable mixture-property
+  mixing rules and the gradient-flow composition solver.
 
 ### Present but not yet used by any code
-- **matplotlib** (≥3.11.1), **JAX** (≥0.4.29), **equinox** (≥0.11.10),
-  **diffrax** (≥0.6.1) - installed via `pixi.toml` for planned
-  optimization/plotting work; no current `src/specfuel` module imports them.
+- **matplotlib** (≥3.11.1) - installed via `pixi.toml` for planned plotting
+  work; no current `src/specfuel` module imports it.
 
 ### Development Dependencies
 - **ruff** - Linting and formatting
@@ -236,7 +242,8 @@ pixi run hooks
 
 ## Key Files & Their Purpose
 
-- **`src/specfuel/fuel.py`** - `Fuel` pydantic model: `name`, `compounds`, `weights`, optional `formulas`/`pelephysics_keys`, `cg_groups`, `cg_decomp`. Validators enforce weights sum to 100% and `cg_decomp` shape/group-name consistency with `ConstGani`. `Fuel.from_directory(path)` loads a `composition.csv` + `const_gani.csv` pair. Instance methods `density(temp)`, `kinematic_viscosity(temp, *, method=, correlation=)`, and `dynamic_viscosity(temp, *, method=, correlation=)` compute mixture properties (`correlation` is `"Kendall-Monroe"` or `"Arrhenius"`).
+- **`src/specfuel/fuel.py`** - `Fuel` pydantic model: `name`, `compounds`, `weights`, optional `formulas`/`pelephysics_keys`, `cg_groups`, `cg_decomp`. Validators enforce weights sum to 100% and `cg_decomp` shape/group-name consistency with `ConstGani`. `Fuel.from_directory(path)` loads a `composition.csv` + `const_gani.csv` pair. `load_const_gani_decomp(path)` (public) loads a bare `const_gani.csv` (compound names, group names, decomposition matrix). Instance methods `density(temp)`, `kinematic_viscosity(temp, *, method=, correlation=)`, and `dynamic_viscosity(temp, *, method=, correlation=)` compute mixture properties (`correlation` is `"Kendall-Monroe"` or `"Arrhenius"`).
+- **`src/specfuel/inv.py`** - Inverse fuel-composition design. `solve_composition(directory, *, name=, t1=, dt0=, rtol=, atol=, max_steps=)` reads `const_gani.csv` + `constraints.csv` from `directory` and returns a `Fuel` whose weight-fraction composition best satisfies the constraints (least-squares, not a feasibility solver). Composition is parameterized as `softmax(logits)` (an `equinox.Module`) so weights are always non-negative and sum to 100%; only the mixing/mixture-combination math (mirroring `Fuel`'s density/viscosity mixing rules) is reimplemented in `jax.numpy` for autodiff — per-compound GCM properties are precomputed via `ConstGani` (pint/numpy) since they don't depend on composition. Solved by integrating the loss's gradient flow to steady state with `diffrax.diffeqsolve` (`diffrax.Event(diffrax.steady_state_event(...))`). `constraints.csv` columns: `Property` (`density` | `kinematic_viscosity` | `dynamic_viscosity`), `Temperature` (°C), `Target`, `Unit` (pint-parseable), `Tolerance` (same `Unit` as `Target`; normalizes residuals across properties), optional `Correlation` (`Kendall-Monroe` [default] | `Arrhenius`, viscosity rows only).
 - **`src/specfuel/gcm.py`** - `ConstGani` class: loads `data/gcm/const_gani.csv` (Constantinou-Gani 1994 group contribution constants) and exposes per-compound property functions that take an `INT_MATRIX` decomposition. STP/temperature-independent: `molecular_weights`, `critical_temperatures`, `critical_pressures`, `critical_volumes`, `boiling_temperatures`, `stp_molar_liquid_volumes`, `acentric_factors`. Temperature-dependent (take a `Quantity` temperature): `molar_liquid_volumes`, `densities`, `kinematic_viscosities`, `dynamic_viscosities`. All values are returned in the GCM's native units (no unit conversions are performed).
 - **`src/specfuel/types.py`** - `FLOAT_VECTOR`, `INT_MATRIX` numpy array type aliases shared by `fuel.py`/`gcm.py`.
 - **`src/specfuel/units.py`** - Shared pint `ureg`/`Q_` (set as the application registry) so `Quantity` objects interoperate across the package.

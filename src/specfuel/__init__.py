@@ -2,6 +2,6 @@
 
 __version__ = "0.0.0"
 
-from . import data, fuel, gcm
+from . import data, fuel, gcm, inv
 
-__all__ = ["data", "fuel", "gcm"]
+__all__ = ["data", "fuel", "gcm", "inv"]

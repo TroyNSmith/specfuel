@@ -16,7 +16,12 @@ requires = ["uv_build<0.12"]
 
 # PyPI dependencies
 [pypi-dependencies]
-jax = ">=0.11.1"
+diffrax = ">=0.7.2"
+equinox = ">=0.13.8"
+# <0.11.1 avoids a circular-import bug in jax 0.11.1's jax._src.clusters
+# package (breaks `import jax` entirely). Floor kept low so osx-64 (no
+# jaxlib wheels beyond 0.4.38) can still resolve.
+jax = ">=0.4.29,<0.11.1"
 
 # Ruff configurations
 [tool.ruff]
@@ -63,6 +68,7 @@ root_package = "specfuel"
 name = "Module Layering"
 type = "layers"
 layers = [
+    "specfuel.inv",
     "specfuel.data",
     "specfuel.fuel",
     "specfuel.gcm",
