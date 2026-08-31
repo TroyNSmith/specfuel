@@ -36,7 +36,7 @@ class TestConstGani:
 class BaselineRow(NamedTuple):
     """A single baseline row from a const_gani baseline CSV."""
 
-    compound: str
+    family: str
     property: str
     temperature_c: float
     value: float
@@ -75,7 +75,7 @@ def _baseline_case_id(case: tuple[str, BaselineRow]) -> str:
     """
     fuel_name, row = case
     temp = "stp" if pd.isna(row.temperature_c) else f"{row.temperature_c:g}C"
-    return f"{fuel_name}-{row.compound}-{row.property}-{temp}"
+    return f"{fuel_name}-{row.family}-{row.property}-{temp}"
 
 
 CONST_GANI = ConstGani()
@@ -103,7 +103,7 @@ def test_const_gani_matches_baseline(case: tuple[str, BaselineRow]) -> None:
     """Recompute each baseline row and compare it to the recorded value."""
     fuel_name, row = case
     fuel = FUELS_BY_NAME[fuel_name]
-    compound_idx = fuel.compounds.index(row.compound)
+    family_idx = fuel.families.index(row.family)
 
     if row.property in STP_PROPERTIES:
         values = STP_PROPERTIES[row.property](fuel.cg_decomp)
@@ -112,4 +112,4 @@ def test_const_gani_matches_baseline(case: tuple[str, BaselineRow]) -> None:
         values = TEMP_PROPERTIES[row.property](fuel.cg_decomp, temp)
 
     assert str(values.units) == row.unit
-    assert values.magnitude[compound_idx] == pytest.approx(row.value, rel=BASELINE_RTOL)
+    assert values.magnitude[family_idx] == pytest.approx(row.value, rel=BASELINE_RTOL)

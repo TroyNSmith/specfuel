@@ -131,7 +131,7 @@ class TestSolveComposition:
 
     def test_raises_for_mismatched_groups(self, tmp_path: Path) -> None:
         """Test that a const_gani.csv with unexpected groups raises."""
-        (tmp_path / "const_gani.csv").write_text("Compound,foo,bar\nA,1,0\nB,0,1\n")
+        (tmp_path / "const_gani.csv").write_text("Family,foo,bar\nA,1,0\nB,0,1\n")
         _write_constraints_from_ground_truth(tmp_path)
         with pytest.raises(ValueError, match="do not match"):
             solve_composition(tmp_path)

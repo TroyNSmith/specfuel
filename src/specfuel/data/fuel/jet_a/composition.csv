@@ -1,6 +1,6 @@
 Family,Reference Compound,Formula,PelePhysics Key,Weight %
 Toluene,toluene,C7H8,C6H5CH3,0.07
-C2-Benzene,ethyl benzene ,C8H10,C6H5C2H5,1.79
+C2-Benzene,ethyl benzene,C8H10,C6H5C2H5,1.79
 C3-Benzene,propyl benzene,C9H12,C6H5C3H7,4.54
 C4-Benzene,butyl benzene,C10H14,C6H5C4H9,3.27
 C5-Benzene,pentyl benzene,C11H16,C6H5C5H11,2.73
@@ -15,7 +15,7 @@ Diaromatic-C13,1-propyl naphthalene,C13H14,PROPYLNAPH-1,0.51
 Cycloaromatic-C09,indane,C9H10,INDANE,0.14
 Cycloaromatic-C10,tetralin,C10H12,TETRA,0.45
 Cycloaromatic-C11,2-methyl tetralin,C11H14,METHYLTETRA-2,2.43
-Cycloaromatic-C12,2-ethly tetralin,C12H16,ETHYLTETRA-2,2.21
+Cycloaromatic-C12,2-ethyl tetralin,C12H16,ETHYLTETRA-2,2.21
 Cycloaromatic-C13,2-propyl tetralin,C13H18,PROPYLTETRA-2,1.46
 Cycloaromatic-C14,2-butyl tetralin,C14H20,BUTYLTETRA-2,0.42
 C07-Isoparaffin,2-methyl hexane,C7H16,C7H16-2,0.01

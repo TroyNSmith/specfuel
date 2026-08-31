@@ -19,7 +19,7 @@ CONST_GANI = ConstGani()
 
 def _load_gc_data(
     path: str | Path,
-) -> tuple[list[str], np.ndarray, list[str] | None, list[str] | None]:
+) -> tuple[list[str], np.ndarray, list[str] | None, list[str] | None, list[str] | None]:
     """Load composition data from a .CSV file.
 
     Parameters
@@ -42,7 +42,13 @@ def _load_gc_data(
 
     df: DataFrame = pd.read_csv(path, header=0)
 
-    recognized_headers = ["Compound", "Weight %", "Formula", "PelePhysics Key"]
+    recognized_headers = [
+        "Family",
+        "Reference Compound",
+        "Weight %",
+        "Formula",
+        "PelePhysics Key",
+    ]
     if not any(header in recognized_headers for header in df.columns):
         unrecognized_headers = [
             header for header in df.columns if header not in recognized_headers
@@ -50,30 +56,39 @@ def _load_gc_data(
         msg = f"'{path}' contains unrecognized headers: {unrecognized_headers}."
         raise ValueError(msg)
 
-    required_headers = ["Compound", "Weight %"]
+    required_headers = ["Family", "Weight %"]
     if not all(header in df.columns for header in required_headers):
         msg = f"'{path}' does not contain required headers: {required_headers}."
         raise ValueError(msg)
 
-    compounds = df["Compound"].tolist()
+    families = df["Family"].tolist()
     weights = df["Weight %"].to_numpy(dtype=np.float64)
-    if len(compounds) != len(weights):
-        msg = f"Number of compounds != number of weights in '{path}'."
+    if len(families) != len(weights):
+        msg = f"Number of families != number of weights in '{path}'."
+        raise ValueError(msg)
+
+    reference_compounds = (
+        df["Reference Compound"].tolist()
+        if "Reference Compound" in df.columns
+        else None
+    )
+    if reference_compounds is not None and len(reference_compounds) != len(families):
+        msg = f"Number of reference compounds != number of families in '{path}'."
         raise ValueError(msg)
 
     formulas = df["Formula"].tolist() if "Formula" in df.columns else None
-    if formulas is not None and len(formulas) != len(compounds):
-        msg = f"Number of formulas != number of compounds in '{path}'."
+    if formulas is not None and len(formulas) != len(families):
+        msg = f"Number of formulas != number of families in '{path}'."
         raise ValueError(msg)
 
     pelephysics_keys = (
         df["PelePhysics Key"].tolist() if "PelePhysics Key" in df.columns else None
     )
-    if pelephysics_keys is not None and len(pelephysics_keys) != len(compounds):
-        msg = f"Number of PelePhysics keys != number of compounds in '{path}'."
+    if pelephysics_keys is not None and len(pelephysics_keys) != len(families):
+        msg = f"Number of PelePhysics keys != number of families in '{path}'."
         raise ValueError(msg)
 
-    return compounds, weights, formulas, pelephysics_keys
+    return families, weights, reference_compounds, formulas, pelephysics_keys
 
 
 def load_const_gani_decomp(
@@ -83,12 +98,13 @@ def load_const_gani_decomp(
 
     Returns
     -------
-        Compound names (row index), group names (columns), and the
+        Family names (row index), group names (columns), and the
         decomposition matrix.
 
     Raises
     ------
-        ValueError: If the const_gani.csv file does not exist.
+        ValueError: If the const_gani.csv file does not exist or does not have
+            'Family' as its first column.
     """
     path = Path(path)
     if not path.exists():
@@ -99,12 +115,21 @@ def load_const_gani_decomp(
         msg = f"'{path}' is not a .CSV file."
         raise ValueError(msg)
 
-    df: DataFrame = pd.read_csv(path, header=0, index_col=0)
-    if not all(df.dtypes == np.int64):
+    df: DataFrame = pd.read_csv(path, header=0)
+    if len(df.columns) == 0 or df.columns[0] != "Family":
+        msg = f"'{path}' must have 'Family' as its first column."
+        raise ValueError(msg)
+
+    families = df["Family"].tolist()
+    decomp_df = df.drop(columns=["Family"])
+    if "Reference Compound" in decomp_df.columns:
+        decomp_df = decomp_df.drop(columns=["Reference Compound"])
+
+    if not all(decomp_df.dtypes == np.int64):
         msg = f"'{path}' contains non-integer values."
         raise ValueError(msg)
 
-    return list(df.index), list(df.columns), df.to_numpy(dtype=np.int64)
+    return families, list(decomp_df.columns), decomp_df.to_numpy(dtype=np.int64)
 
 
 class Fuel(BaseModel):
@@ -114,7 +139,8 @@ class Fuel(BaseModel):
 
     # Fuel properties
     name: str
-    compounds: list[str]
+    families: list[str]
+    reference_compounds: list[str] | None = None
     weights: FLOAT_VECTOR
     formulas: list[str] | None = None
     pelephysics_keys: list[str] | None = None
@@ -124,32 +150,32 @@ class Fuel(BaseModel):
     cg_decomp: INT_MATRIX
 
     @property
-    def num_compounds(self) -> int:
-        """Get the number of compounds in the fuel.
+    def num_families(self) -> int:
+        """Get the number of families in the fuel.
 
         Returns
         -------
-            Number of compounds.
+            Number of families.
         """
-        return len(self.compounds)
+        return len(self.families)
 
     @property
     def _mass_fractions(self) -> FLOAT_VECTOR:
-        """Get the mass fractions of the compounds in the fuel.
+        """Get the mass fractions of the families in the fuel.
 
         Returns
         -------
-            Mass fractions of the compounds.
+            Mass fractions of the families.
         """
         return self.weights / np.sum(self.weights)
 
     @property
     def _mole_fractions(self) -> FLOAT_VECTOR:
-        """Get the mole fractions of the compounds in the fuel.
+        """Get the mole fractions of the families in the fuel.
 
         Returns
         -------
-            Mole fractions of the compounds.
+            Mole fractions of the families.
         """
         return (
             self._mass_fractions
@@ -260,18 +286,21 @@ class Fuel(BaseModel):
             msg = f"'{path}' does not contain required file 'composition.csv'."
             raise ValueError(msg)
 
-        compounds, weights, formulas, pelephysics_keys = _load_gc_data(gc_data)
+        families, weights, reference_compounds, formulas, pelephysics_keys = (
+            _load_gc_data(gc_data)
+        )
 
         cg_decomp = path / "const_gani.csv"
         if not cg_decomp.exists():
             msg = f"'{path}' does not contain required file 'const_gani.csv'."
             raise ValueError(msg)
 
-        _cg_compounds, cg_groups, cg_decomp_mat = load_const_gani_decomp(cg_decomp)
+        _cg_families, cg_groups, cg_decomp_mat = load_const_gani_decomp(cg_decomp)
 
         return cls(
             name=path.name,
-            compounds=compounds,
+            families=families,
+            reference_compounds=reference_compounds,
             weights=weights,
             formulas=formulas,
             pelephysics_keys=pelephysics_keys,
@@ -282,8 +311,8 @@ class Fuel(BaseModel):
     @model_validator(mode="after")
     def validate_weights(self) -> Self:
         """Validate that the weights sum to 100%."""
-        if len(self.weights) != self.num_compounds:
-            msg = f"Number of weights != number of compounds for fuel '{self.name}'."
+        if len(self.weights) != self.num_families:
+            msg = f"Number of weights != number of families for fuel '{self.name}'."
             raise ValueError(msg)
 
         if not np.isclose(np.sum(self.weights), 100.0, atol=5e-1):
@@ -299,8 +328,8 @@ class Fuel(BaseModel):
             msg = f"groups for fuel '{self.name}' do not match ConstGani group names.\n"
             raise ValueError(msg)
 
-        if self.cg_decomp.shape[0] != self.num_compounds:
-            msg = f"Rows in cg_decomp != number of compounds for fuel '{self.name}'."
+        if self.cg_decomp.shape[0] != self.num_families:
+            msg = f"Rows in cg_decomp != number of families for fuel '{self.name}'."
             raise ValueError(msg)
 
         if self.cg_decomp.shape[1] != ConstGani().num_groups:

@@ -165,7 +165,7 @@ def _component_properties(
     Parameters
     ----------
     decomp
-        Decomposition matrix for the candidate compounds.
+        Decomposition matrix for the candidate families.
     temp_c
         Temperature in degrees Celsius.
 
@@ -189,7 +189,7 @@ def _prepare_constraints(
     constraints
         Constraints to prepare.
     decomp
-        Decomposition matrix for the candidate compounds.
+        Decomposition matrix for the candidate families.
 
     Returns
     -------
@@ -307,9 +307,9 @@ def solve_composition(  # noqa: PLR0913 -- solver tuning knobs, all optional
 ) -> Fuel:
     """Solve for a fuel composition that best satisfies property constraints.
 
-    Reads a compound x group decomposition matrix from `const_gani.csv` and a
+    Reads a family x group decomposition matrix from `const_gani.csv` and a
     set of property targets from `constraints.csv` (both in `directory`), then
-    finds the weight-fraction composition over those compounds that best
+    finds the weight-fraction composition over those families that best
     satisfies the constraints in a least-squares sense. The composition is
     parameterized as `softmax(logits)` (so weights are always non-negative and
     sum to 100%) and solved for by integrating the gradient flow of the
@@ -358,7 +358,7 @@ def solve_composition(  # noqa: PLR0913 -- solver tuning knobs, all optional
         msg = f"'{directory}' does not contain required file 'const_gani.csv'."
         raise ValueError(msg)
 
-    compounds, groups, decomp = load_const_gani_decomp(const_gani_path)
+    families, groups, decomp = load_const_gani_decomp(const_gani_path)
     if groups != CONST_GANI.group_names:
         msg = f"Groups in '{const_gani_path}' do not match ConstGani group names.\n"
         raise ValueError(msg)
@@ -373,7 +373,7 @@ def solve_composition(  # noqa: PLR0913 -- solver tuning knobs, all optional
         CONST_GANI.molecular_weights(decomp).to("g/mol").magnitude
     )
 
-    model0 = _CompositionLogits(logits=jnp.zeros(len(compounds)))
+    model0 = _CompositionLogits(logits=jnp.zeros(len(families)))
     sol = diffrax.diffeqsolve(
         diffrax.ODETerm(_vector_field),
         diffrax.Tsit5(),
@@ -390,7 +390,7 @@ def solve_composition(  # noqa: PLR0913 -- solver tuning knobs, all optional
     weights = np.asarray(jax.nn.softmax(sol.ys.logits[-1])) * 100.0
     return Fuel(
         name=name or directory.name,
-        compounds=compounds,
+        families=families,
         weights=weights,
         cg_groups=groups,
         cg_decomp=decomp,

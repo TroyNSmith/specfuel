@@ -33,13 +33,13 @@ def _make_fuel(
 
     Returns
     -------
-        A Fuel instance constructed from default single-compound fields.
+        A Fuel instance constructed from default single-family fields.
     """
     default_decomp = np.zeros((1, NUM_GROUPS), dtype=np.int64)
     default_decomp[0, 0] = 1
     return Fuel(
         name="test-fuel",
-        compounds=["test-compound"],
+        families=["test-family"],
         weights=weights if weights is not None else np.array([100.0]),
         cg_groups=cg_groups if cg_groups is not None else GROUP_NAMES,
         cg_decomp=cg_decomp if cg_decomp is not None else default_decomp,
@@ -50,12 +50,12 @@ class TestFromDirectory:
     """Test Fuel.from_directory."""
 
     def test_loads_decane_fuel(self) -> None:
-        """Test that decane is loaded with the expected compound data."""
+        """Test that decane is loaded with the expected family data."""
         fuel = FUELS_BY_NAME["decane"]
-        assert fuel.compounds == ["n-C10"]
+        assert fuel.families == ["n-C10"]
         assert fuel.formulas == ["C10H22"]
         assert fuel.weights == pytest.approx([100.0])
-        assert fuel.num_compounds == 1
+        assert fuel.num_families == 1
         assert fuel.cg_decomp.shape == (1, NUM_GROUPS)
 
     def test_raises_for_missing_directory(self, tmp_path: Path) -> None:
@@ -71,7 +71,7 @@ class TestFromDirectory:
 
     def test_raises_for_missing_const_gani_csv(self, tmp_path: Path) -> None:
         """Test that a directory missing const_gani.csv raises."""
-        (tmp_path / "composition.csv").write_text("Compound,Weight %\nfoo,100\n")
+        (tmp_path / "composition.csv").write_text("Family,Weight %\nfoo,100\n")
         with pytest.raises(ValueError, match=re.escape("const_gani.csv")):
             Fuel.from_directory(tmp_path)
 
@@ -85,7 +85,7 @@ class TestValidators:
             _make_fuel(weights=np.array([50.0]))
 
     def test_validate_weights_raises_on_length_mismatch(self) -> None:
-        """Test that a weights/compounds length mismatch raises."""
+        """Test that a weights/families length mismatch raises."""
         with pytest.raises(ValidationError, match="Number of weights"):
             _make_fuel(weights=np.array([50.0, 50.0]))
 
@@ -95,7 +95,7 @@ class TestValidators:
             _make_fuel(cg_groups=["not", "matching"])
 
     def test_validate_cg_decomp_raises_on_row_mismatch(self) -> None:
-        """Test that cg_decomp rows not matching num_compounds raises."""
+        """Test that cg_decomp rows not matching num_families raises."""
         decomp = np.zeros((2, NUM_GROUPS), dtype=np.int64)
         with pytest.raises(ValidationError, match="Rows in cg_decomp"):
             _make_fuel(cg_decomp=decomp)

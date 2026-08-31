@@ -62,24 +62,24 @@ def _example_fuels() -> list[Fuel]:
 
 
 def generate_const_gani_baseline(fuel: Fuel) -> pd.DataFrame:
-    """Compute per-compound ConstGani baseline properties for a fuel.
+    """Compute per-family ConstGani baseline properties for a fuel.
 
     Parameters
     ----------
     fuel
-        Fuel whose compound decomposition is used to compute properties.
+        Fuel whose family decomposition is used to compute properties.
 
     Returns
     -------
-        Tidy DataFrame with columns [compound, property, temperature_C, value, unit].
+        Tidy DataFrame with columns [family, property, temperature_C, value, unit].
     """
     rows = []
     for prop_name, stp_func in STP_PROPERTIES.items():
         values = stp_func(fuel.cg_decomp)
-        for compound, value in zip(fuel.compounds, values.magnitude, strict=True):
+        for family, value in zip(fuel.families, values.magnitude, strict=True):
             rows.append(
                 {
-                    "compound": compound,
+                    "family": family,
                     "property": prop_name,
                     "temperature_c": np.nan,
                     "value": value,
@@ -90,10 +90,10 @@ def generate_const_gani_baseline(fuel: Fuel) -> pd.DataFrame:
     for prop_name, temp_func in TEMP_PROPERTIES.items():
         for temp_c in TEMPERATURES_C:
             values = temp_func(fuel.cg_decomp, Q_(temp_c, "celsius"))
-            for compound, value in zip(fuel.compounds, values.magnitude, strict=True):
+            for family, value in zip(fuel.families, values.magnitude, strict=True):
                 rows.append(
                     {
-                        "compound": compound,
+                        "family": family,
                         "property": prop_name,
                         "temperature_c": temp_c,
                         "value": value,
