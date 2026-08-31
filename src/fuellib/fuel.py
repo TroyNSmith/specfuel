@@ -124,7 +124,7 @@ class Fuel(BaseModel):
         return [component.name for component in self.components]
 
     @property
-    def _weights(self) -> FLOAT_VECTOR:
+    def weights(self) -> FLOAT_VECTOR:
         """Assemble a weight vector from the fuel's components.
 
         Returns
@@ -134,7 +134,7 @@ class Fuel(BaseModel):
         return np.array([component.weight for component in self.components])
 
     @property
-    def _cg_decomp(self) -> INT_MATRIX:
+    def cg_decomp(self) -> INT_MATRIX:
         """Assemble a decomposition matrix from the fuel's components.
 
         Returns
@@ -144,17 +144,17 @@ class Fuel(BaseModel):
         return np.array([component.cg_decomp for component in self.components])
 
     @property
-    def _mass_fractions(self) -> FLOAT_VECTOR:
+    def mass_fractions(self) -> FLOAT_VECTOR:
         """Get the mass fractions of the components in the fuel.
 
         Returns
         -------
             Mass fractions of the components.
         """
-        return self._weights / np.sum(self._weights)
+        return self.weights / np.sum(self.weights)
 
     @property
-    def _mole_fractions(self) -> FLOAT_VECTOR:
+    def mole_fractions(self) -> FLOAT_VECTOR:
         """Get the mole fractions of the components in the fuel.
 
         Returns
@@ -162,11 +162,11 @@ class Fuel(BaseModel):
             Mole fractions of the components.
         """
         return (
-            self._mass_fractions
-            * (1.0 / CONST_GANI.molecular_weights(self._cg_decomp).magnitude)
+            self.mass_fractions
+            * (1.0 / CONST_GANI.molecular_weights(self.cg_decomp).magnitude)
         ) / np.sum(
-            self._mass_fractions
-            * (1.0 / CONST_GANI.molecular_weights(self._cg_decomp).magnitude)
+            self.mass_fractions
+            * (1.0 / CONST_GANI.molecular_weights(self.cg_decomp).magnitude)
         )
 
     def density(
@@ -187,7 +187,7 @@ class Fuel(BaseModel):
         """
         return cast(
             "Quantity",
-            self._mass_fractions @ method.densities(self._cg_decomp, temp),
+            self.mass_fractions @ method.densities(self.cg_decomp, temp),
         )
 
     def kinematic_viscosity(
@@ -212,13 +212,13 @@ class Fuel(BaseModel):
         -------
             Kinematic viscosity of the fuel.
         """
-        nu_i = method.kinematic_viscosities(self._cg_decomp, temp).to("m^2/s")
+        nu_i = method.kinematic_viscosities(self.cg_decomp, temp).to("m^2/s")
 
         if correlation == "Arrhenius":
-            nu_mag = np.exp(np.sum(self._mole_fractions * np.log(nu_i.magnitude)))
+            nu_mag = np.exp(np.sum(self.mole_fractions * np.log(nu_i.magnitude)))
             return cast("Quantity", Q_(nu_mag, "m^2/s"))
 
-        return (np.sum(self._mass_fractions * (nu_i ** (1.0 / 3.0))) ** 3.0).to("m^2/s")
+        return (np.sum(self.mass_fractions * (nu_i ** (1.0 / 3.0))) ** 3.0).to("m^2/s")
 
     def dynamic_viscosity(
         self,
@@ -310,7 +310,7 @@ class Fuel(BaseModel):
     @model_validator(mode="after")
     def validate_weights(self) -> Self:
         """Validate that the weights sum to 100%."""
-        if not np.isclose(np.sum(self._weights), 100.0, atol=5e-1):
+        if not np.isclose(np.sum(self.weights), 100.0, atol=5e-1):
             msg = f"Weights for fuel '{self.name}' do not sum to 100%."
             raise ValueError(msg)
 

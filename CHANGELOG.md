@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 ### Added
-- Inverse fuel-composition design (`specfuel.inv.solve_composition`): given a
+- Inverse fuel-composition design (`specfuel.solve_composition`): given a
   directory with a `const_gani.csv` decomposition matrix and a
   `constraints.csv` of density/kinematic-viscosity/dynamic-viscosity targets,
   solves for the weight-fraction composition that best satisfies them
@@ -20,11 +20,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   arrays/matrix.
 
 ### Changed
+- `specfuel` reorganized from a single `inv.py` file into flat modules
+  (`constraints.py`, `mixing.py`, `loss.py`, `solve.py`); the public
+  `specfuel.solve_composition` import path is unchanged.
 - `fuellib.decomp.ConstGaniDecomp` now tolerates `const_gani.csv`/direct
   construction `groups` that omit some `ConstGani` group names — missing
   groups are zero-filled rather than raising. Only group names not
   recognized by `ConstGani` still raise a `ValueError`.
-- `Fuel.from_directory` and `specfuel.inv.solve_composition` now load
+- `Fuel.from_directory` and `specfuel.solve_composition` now load
   `const_gani.csv` via `fuellib.decomp.ConstGaniDecomp.from_csv` instead of
   the removed `fuellib.fuel.load_const_gani_decomp` function.
 - **Breaking:** `Fuel` now stores `components: list[fuellib.comp.Component]`
