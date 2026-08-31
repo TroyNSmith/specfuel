@@ -5,6 +5,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 ### Added
+- `tests/inv_density.py`: standalone example script (not part of the test
+  suite; guarded by `if __name__ == "__main__":`) demonstrating density
+  inverse-design — solves for a `Feedstock` mass-fraction composition that
+  matches a target density at a target temperature, via a `softmax(logits)`
+  composition parameterization optimized with `optax.adam`.
+- `optax` dependency (`pyproject.toml`/`pixi.toml`), used by
+  `tests/inv_density.py`'s gradient-based composition solve.
+- `specfuel.Feedstock`: a JAX-native (`equinox.Module`, struct-of-arrays)
+  catalog of feedstock components, loaded via `Feedstock.from_csv` from a
+  CSV with `Family`, `Reference Compound`, `Molecular Weight (<unit>)`,
+  `Critical Temperature (<unit>)`, `STP Molar Liquid Volume (<unit>)`, and
+  `Acentric Factor` columns. Units are parsed from the header and converted
+  via `pint` to canonical `g/mol`/`kelvin`/`L/mol` (acentric factor is
+  dimensionless), then stored as plain `jax.Array` magnitudes so
+  `Feedstock` instances can be passed directly through `jax.jit`/`grad`/
+  `vmap` in future mixing-rule code.
+- `Feedstock.molar_liquid_volumes(temp)`: a pure-`jax.numpy` port of the
+  Constantinou-Gani (1994) molar liquid volume correlation (mirroring
+  `fuellib.gcm.ConstGani.molar_liquid_volumes`), with no `pint`/`fuellib`
+  dependency so it is differentiable/jit-traceable end-to-end for future
+  density inverse-design.
 - Inverse fuel-composition design (`specfuel.solve_composition`): given a
   directory with a `const_gani.csv` decomposition matrix and a
   `constraints.csv` of density/kinematic-viscosity/dynamic-viscosity targets,

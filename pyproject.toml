@@ -26,6 +26,7 @@ equinox = ">=0.13.8"
 # package (breaks `import jax` entirely). Floor kept low so osx-64 (no
 # jaxlib wheels beyond 0.4.38) can still resolve.
 jax = ">=0.4.29,<0.11.1"
+optax = ">=0.2.5"
 
 # Ruff configurations
 [tool.ruff]
